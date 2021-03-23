@@ -11,12 +11,23 @@ font-family: 'Rock Salt', cursive; */
   pointer-events: none;
 }
 
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
 .title {
   font-family: 'Rock Salt', cursive;
   margin-bottom: 20px;
   margin-left: 20px;
   font-size: 2em;
   font-weight: 700;
+}
+
+.poster {
+  width: 150px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
