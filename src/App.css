@@ -3,34 +3,26 @@ font-family: 'Raleway Dots', cursive;
 font-family: 'Rock Salt', cursive; */
 
 .App {
-  text-align: center;
   margin: 50px;
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 50px;
   pointer-events: none;
+}
+
+.title {
+  font-family: 'Rock Salt', cursive;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  font-size: 2em;
+  font-weight: 700;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
