@@ -13,7 +13,7 @@ const defaultMovie = {
   release_date: "2019-12-04",
   overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!",
   average_rating: 6,
-  genres: [{id: 18, name: "Drama"}],
+  genres: [{id: 18, name: "Drama"}, {id: 42, name: "Comedy"}],
   budget: 63000000,
   revenue: 100853753,
   runtime: 139,
@@ -24,7 +24,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      // defaultMovie
+      defaultMovie
     }
   }
 
@@ -47,13 +47,13 @@ class App extends Component {
           {/*    />*/}
           {/*  })}*/}
           {/*</section>*/}
-          {/*{this.state.defaultMovie && <Movie />}*/}
-          <section className="profile">
+          {this.state.defaultMovie && <section className="profile">
             <MovieProfile
-                  key={defaultMovie.id}
-                  data={defaultMovie}
-                />
-          </section>
+              key={defaultMovie.id}
+              data={defaultMovie}
+            />
+          </section>}
+
         </header>
       </div>
     )
