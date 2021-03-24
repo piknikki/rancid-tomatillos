@@ -17,6 +17,11 @@ const MovieProfile = (props) => {
 
   const rottenTomatillos = '🤢'
 
+  const options2 = { style: 'currency', currency: 'USD' };
+  const numberFormat2 = new Intl.NumberFormat('en-US', options2);
+
+  const formattedCurrency = (value) => numberFormat2.format(value)
+
   return (
     <>
       <p className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</p>
@@ -33,8 +38,8 @@ const MovieProfile = (props) => {
           <p>{genres.map(genre =>
             <button className="genre" type="button">{genre.name}</button>
           )}</p>
-          <p>Budget: {budget}</p>
-          <p>Revenue: {revenue}</p>
+          <p>Budget: {formattedCurrency(budget)}</p>
+          <p>Revenue: {formattedCurrency(revenue)}</p>
 
         </div>
       </article>
