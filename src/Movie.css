@@ -1,15 +1,26 @@
 article {
     margin: 10px;
     border: 1px solid black;
+    width: 150px;
+}
+
+p {
+    margin: 7px;
 }
 
 .poster {
     width: 150px;
+    margin: 0 auto;
 }
 
 .movie-title {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
-    padding: 10px;
+    text-align: center;
+}
+
+.movie-subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8em;
     text-align: center;
 }
