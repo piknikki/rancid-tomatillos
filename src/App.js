@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import logo from './logo.png';
 import './App.css';
-// import movieData from "./data";
-// import Movie from "./Movie";
+import movieData from "./data";
+import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
 
 const defaultMovie = {
@@ -24,8 +24,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      defaultMovie
+      defaultMovie,
+      allMovies: movieData.movies,
+      currentMovie: {}
     }
+  }
+
+  showProfile = (id) => {
+    const currentMovie = this.state.allMovies.find(movie => movie.id === id)
+    this.setState({ currentMovie: currentMovie })
   }
 
   render() {
@@ -34,19 +41,20 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           <span className="title">Rancid Tomatillos</span>
-          {/*<section className="cards">*/}
-          {/*  {movieData.movies.map((movie) => {*/}
-          {/*    return <Movie*/}
-          {/*      key={movie.id}*/}
-          {/*      id={movie.id}*/}
-          {/*      poster_path={movie.poster_path}*/}
-          {/*      backdrop_path={movie.backdrop_path}*/}
-          {/*      title={movie.title}*/}
-          {/*      average_rating={movie.average_rating}*/}
-          {/*      release_date={movie.release_date}*/}
-          {/*    />*/}
-          {/*  })}*/}
-          {/*</section>*/}
+          <section className="cards">
+            {this.state.allMovies.map((movie) => {
+              return <Movie
+                key={movie.id}
+                id={movie.id}
+                poster_path={movie.poster_path}
+                backdrop_path={movie.backdrop_path}
+                title={movie.title}
+                average_rating={movie.average_rating}
+                release_date={movie.release_date}
+                showProfile={this.showProfile}
+              />
+            })}
+          </section>
           {this.state.defaultMovie &&
             <section className="profile">
               <MovieProfile
