@@ -26,15 +26,14 @@ font-family: 'Rock Salt', cursive; */
     font-family: 'Rock Salt', cursive;
     /*color: white;*/
     font-size: 3rem;
+    margin: 10px 0;
 }
 
 .ratings {
     float: right;
 }
 
-.drama,
-.lgbtq,
-.comedy {
+.genre {
     border-radius: 15px;
     padding: 5px 10px;
     font-family: 'Raleway', sans-serif;
