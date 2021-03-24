@@ -1,0 +1,27 @@
+/* font-family: 'Raleway', sans-serif;
+font-family: 'Raleway Dots', cursive;
+font-family: 'Rock Salt', cursive; */
+
+article {
+    width: 90vw;
+    border: 2px solid forestgreen;
+    margin: 0 auto;
+}
+
+.backdrop {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.content-wrapper {
+    margin: 50px;
+}
+
+.movie-title {
+    font-family: 'Rock Salt', cursive;
+}
+
+.movie-ratings {
+    float: right;
+}

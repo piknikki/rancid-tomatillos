@@ -1,7 +1,8 @@
 article {
-    margin: 10px;
-    border: 1px solid black;
-    width: 150px;
+    margin: 5px;
+    padding-top: 45px;
+    /*border: 1px solid black;*/
+    width: 200px;
 }
 
 p {
@@ -9,17 +10,17 @@ p {
 }
 
 .poster {
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
 }
 
-.movie-title {
+.movie-ratings {
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
     text-align: center;
 }
 
-.movie-subtitle {
+.movie-since {
     font-family: 'Raleway', sans-serif;
     font-size: 0.8em;
     text-align: center;

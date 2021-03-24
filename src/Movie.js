@@ -9,8 +9,8 @@ const Movie = ({ id, poster_path, backdrop_path, title, average_rating, release_
   return (
     <article id={id}>
       <img className="poster" src={poster_path} alt={title} />
-      <p className="movie-title">{rottenTomatillos.repeat(Math.floor(average_rating))}</p>
-      <p className="movie-subtitle">since {release_date}</p>
+      <p className="movie-ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</p>
+      <p className="movie-since">since {release_date}</p>
     </article>
   )
 }
