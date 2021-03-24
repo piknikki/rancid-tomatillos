@@ -26,11 +26,12 @@ font-family: 'Rock Salt', cursive; */
     font-family: 'Rock Salt', cursive;
     /*color: white;*/
     font-size: 3rem;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .ratings {
     float: right;
+    font-size: 2em;
 }
 
 .genre {

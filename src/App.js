@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import logo from './logo.png';
 import './App.css';
-import movieData from "./data";
-import Movie from "./Movie";
+// import movieData from "./data";
+// import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
 
 const defaultMovie = {
@@ -47,12 +47,14 @@ class App extends Component {
           {/*    />*/}
           {/*  })}*/}
           {/*</section>*/}
-          {this.state.defaultMovie && <section className="profile">
-            <MovieProfile
-              key={defaultMovie.id}
-              data={defaultMovie}
-            />
-          </section>}
+          {this.state.defaultMovie &&
+            <section className="profile">
+              <MovieProfile
+                key={defaultMovie.id}
+                data={defaultMovie}
+              />
+            </section>
+          }
 
         </header>
       </div>
