@@ -24,7 +24,8 @@ const MovieProfile = (props) => {
 
   return (
     <>
-      <p className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</p>
+
+      <span className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</span>
       <article className="profile-container" id={id}>
         <img className="backdrop" src={backdrop_path} alt={title}/>
         <div className="content-wrapper">
@@ -40,7 +41,7 @@ const MovieProfile = (props) => {
           )}</p>
           <p>Budget: {formattedCurrency(budget)}</p>
           <p>Revenue: {formattedCurrency(revenue)}</p>
-
+          <button className="go-back btn">⬅</button><button className="delete btn">❌</button>
         </div>
       </article>
     </>
