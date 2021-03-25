@@ -28,7 +28,7 @@ class App extends Component {
     this.state = {
       defaultMovie,
       allMovies: [],
-      currentMovie: this.getMovie(539885),
+      currentMovie: this.getMovie(539885), // change this once onClick is fixed, to {}
       error: ''
     }
   }
@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   getMovie(id) {
-    this._isLoaded = true;
+    this._isLoaded = true; // this isn't working correctly for getMovie, maybe because I'm calling it in the constructor
 
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
