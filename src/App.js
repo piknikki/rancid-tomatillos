@@ -30,6 +30,10 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
+  goBack = () => {
+    this.setState({ currentMovie: null })
+  }
+
   render() {
     return (
       <div className="App">
@@ -53,6 +57,7 @@ class App extends Component {
                 <MovieProfile
                   key={this.state.currentMovie.id}
                   data={this.state.currentMovie}
+                  goBack={this.goBack}
                 />
               </section>
             }

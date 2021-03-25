@@ -14,7 +14,9 @@ const MovieProfile = (props) => {
     budget,
     revenue,
     runtime,
-    tagline } = props.data
+    tagline,
+    goBack,
+  } = props.data
 
   const rottenTomatillos = '🤢'
 
@@ -41,7 +43,7 @@ const MovieProfile = (props) => {
           )}</p>
           <p>Budget: {formattedCurrency(budget)}</p>
           <p>Revenue: {formattedCurrency(revenue)}</p>
-          <button className="go-back btn">⬅</button>
+          <button className="go-back btn" onClick={goBack}>⬅</button>
           <button className="delete btn">❌</button>
         </div>
       </article>
