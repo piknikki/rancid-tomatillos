@@ -46,6 +46,7 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           <Route path="/" component={ App } />
+          <Route path="/:id" component={ MovieProfile } />
           <span className="title">Rancid Tomatillos</span>
             {!!this.state.error &&
               <h2>{this.state.error}</h2>
