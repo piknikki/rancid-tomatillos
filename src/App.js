@@ -10,7 +10,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
-      currentMovie: null, // change this once onClick is fixed, to {}
+      currentMovie: null,
       error: ''
     }
   }
@@ -31,8 +31,13 @@ class App extends Component {
   }
 
   goBack = () => {
-    this.setState({ currentMovie: null })
+     this.setState({ currentMovie: null })
   }
+
+  // todo ==> hook up delete button on MovieProfile
+  // deleteMovie = (id) => {
+  //
+  // }
 
   render() {
     return (
