@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './MovieProfile.css'
 
 const MovieProfile = (props) => {
@@ -23,14 +23,6 @@ const MovieProfile = (props) => {
 
   const formattedCurrency = (value) => numberFormat2.format(value)
 
-  const [isMousedOver, setMouseOver] = useState(false)
-  const handleMouseOver = () => {
-    setMouseOver(true)
-  }
-  const handleMouseOut = () => {
-    setMouseOver(false)
-  }
-
   return (
     <>
       <span className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</span>
@@ -49,20 +41,8 @@ const MovieProfile = (props) => {
           )}</p>
           <p>Budget: {formattedCurrency(budget)}</p>
           <p>Revenue: {formattedCurrency(revenue)}</p>
-          <button
-            className="go-back btn"
-            style={{ background: isMousedOver ? "black" : "white" }}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}>
-            ⬅
-          </button>
-          <button
-            className="delete btn"
-            style={{ background: isMousedOver ? "black" : "white" }}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}>
-            ❌
-          </button>
+          <button className="go-back btn">⬅</button>
+          <button className="delete btn">❌</button>
         </div>
       </article>
     </>
