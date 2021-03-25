@@ -51,10 +51,17 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
+  showAll() {
+    this.currentMovie = {}
+  }
+
   componentWillUnmount() {
     this._isLoaded = false;
   }
 
+  // todo => refactor to move mapping movies to its own component????
+  // todo => once onClick is working correctly, show only allMovies or currentMovie
+  // todo => add go back button that empties out the currentMovie so that allMovies shows
   render() {
     return (
       <div className="App">
