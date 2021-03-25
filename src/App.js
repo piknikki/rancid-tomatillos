@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
 import logo from './logo.png';
 import './App.css';
-// import movieData from "./data";
-// import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
-
-const defaultMovie = {
-  id: 1,
-  title: "Fake Movie Title",
-  poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg",
-  backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg",
-  release_date: "2019-12-04",
-  overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!",
-  average_rating: 6,
-  genres: [{id: 18, name: "Drama"}, {id: 42, name: "Comedy"}],
-  budget: 63000000,
-  revenue: 100853753,
-  runtime: 139,
-  tagline: "It's a movie!"
-}
+import Movies from "./Movies";
 
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
-      defaultMovie
+      allMovies: [],
+      currentMovie: null, // change this once onClick is fixed, to {}
+      error: ''
     }
+  }
+
+  componentDidMount() {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
+      .then(response => response.json())
+      .then(allMovies => this.setState({ allMovies: allMovies.movies }))
+      .catch(error => this.setState({ error: error.message }))
+  }
+
+  getMovie = (id) => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => response.json())
+      // .then(data => console.log(data.movie))
+      .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
+      .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
@@ -34,28 +36,26 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           <span className="title">Rancid Tomatillos</span>
-          {/*<section className="cards">*/}
-          {/*  {movieData.movies.map((movie) => {*/}
-          {/*    return <Movie*/}
-          {/*      key={movie.id}*/}
-          {/*      id={movie.id}*/}
-          {/*      poster_path={movie.poster_path}*/}
-          {/*      backdrop_path={movie.backdrop_path}*/}
-          {/*      title={movie.title}*/}
-          {/*      average_rating={movie.average_rating}*/}
-          {/*      release_date={movie.release_date}*/}
-          {/*    />*/}
-          {/*  })}*/}
-          {/*</section>*/}
-          {this.state.defaultMovie &&
-            <section className="profile">
-              <MovieProfile
-                key={defaultMovie.id}
-                data={defaultMovie}
-              />
-            </section>
-          }
+            {!!this.state.error &&
+              <h2>{this.state.error}</h2>
+            }
 
+            {!this.state.error && !this.state.allMovies.length &&
+              <h2>Loading...</h2>
+            }
+
+            {!this.state.currentMovie &&
+              <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+            }
+
+            {this.state.currentMovie &&
+              <section className="profile">
+                <MovieProfile
+                  key={this.state.currentMovie.id}
+                  data={this.state.currentMovie}
+                />
+              </section>
+            }
         </header>
       </div>
     )
