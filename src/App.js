@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
-      currentMovie: this.getMovie(539885), // change this once onClick is fixed, to {}
+      currentMovie: this.getMovie(659986), // change this once onClick is fixed, to {}
       error: ''
     }
   }

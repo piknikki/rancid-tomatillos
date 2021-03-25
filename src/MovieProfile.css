@@ -30,6 +30,13 @@ font-family: 'Rock Salt', cursive; */
     margin: 0;
 }
 
+.genre {
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-family: 'Raleway', sans-serif;
+    margin: 5px;
+}
+
 .ratings {
     float: right;
     font-size: 2em;
@@ -48,11 +55,4 @@ font-family: 'Rock Salt', cursive; */
 .btn {
     background: none;
     border: none;
-}
-
-.genre {
-    border-radius: 15px;
-    padding: 5px 10px;
-    font-family: 'Raleway', sans-serif;
-    margin: 5px;
 }
