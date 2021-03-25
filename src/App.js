@@ -28,7 +28,7 @@ class App extends Component {
     this.state = {
       defaultMovie,
       allMovies: [],
-      currentMovie: {},
+      currentMovie: this.getMovie(539885),
       error: ''
     }
   }
@@ -43,9 +43,11 @@ class App extends Component {
   }
 
   getMovie(id) {
+    this._isLoaded = true;
+
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
-      .then(currentMovie => this.setState({ currentMovie }))
+      .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
       .catch(error => this.setState({ error: error.message }))
   }
 
@@ -72,11 +74,11 @@ class App extends Component {
               />
             })}
           </section>
-          {this.state.defaultMovie &&
+          {this.state.currentMovie &&
             <section className="profile">
               <MovieProfile
-                key={defaultMovie.id}
-                data={defaultMovie}
+                key={this.state.currentMovie.id}
+                data={this.state.currentMovie}
               />
             </section>
           }
