@@ -36,9 +36,9 @@ const MovieProfile = (props) => {
             <span className="release">Release Date: {release_date} </span>
             <span className="runtime"> Run time: {runtime}</span>
           </p>
-          <p>{genres.map(genre =>
-            <button className="genre" type="button" key={genre}>{genre}</button>
-          )}</p>
+          {/*<p>{genres.map(genre =>*/}
+          {/*  <button className="genre" type="button" key={genre}>{genre}</button>*/}
+          {/*)}</p>*/}
           <p>Budget: {formattedCurrency(budget)}</p>
           <p>Revenue: {formattedCurrency(revenue)}</p>
           <button className="go-back btn">⬅</button>

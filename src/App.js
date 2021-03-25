@@ -35,6 +35,16 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
+  // handleClick(id) {
+  //   // this._isLoaded = true; // this isn't working correctly for getMovie, maybe because I'm calling it in the constructor
+  //
+  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+  //     .then(response => response.json())
+  //     // .then(data => console.log(data.movie))
+  //     .then(movieData => this.setState({ currentMovie: movieData.movie }))
+  //     .catch(error => this.setState({ error: error.message }))
+  // }
+
   showAll() {
     this.currentMovie = {}
   }
@@ -43,6 +53,7 @@ class App extends Component {
     this._isLoaded = false;
   }
 
+  // todo ==> refactor map over to its own component
   render() {
     return (
       <div className="App">
@@ -59,6 +70,7 @@ class App extends Component {
                 title={movie.title}
                 average_rating={movie.average_rating}
                 release_date={movie.release_date}
+                showProfile={this.handleClick}
               />
             })}
           </section>
