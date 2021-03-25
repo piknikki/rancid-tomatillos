@@ -4,21 +4,6 @@ import './App.css';
 import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
 
-const defaultMovie = {
-  id: 1,
-  title: "Fake Movie Title",
-  poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg",
-  backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg",
-  release_date: "2019-12-04",
-  overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!",
-  average_rating: 6,
-  genres: [{id: 18, name: "Drama"}, {id: 42, name: "Comedy"}],
-  budget: 63000000,
-  revenue: 100853753,
-  runtime: 139,
-  tagline: "It's a movie!"
-}
-
 class App extends Component {
   _isLoaded = false
 
@@ -26,7 +11,6 @@ class App extends Component {
     super();
 
     this.state = {
-      defaultMovie,
       allMovies: [],
       currentMovie: this.getMovie(539885), // change this once onClick is fixed, to {}
       error: ''
