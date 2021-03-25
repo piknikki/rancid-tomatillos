@@ -1,8 +1,7 @@
 import React from 'react';
 import MovieCard from "./MovieCard";
 
-const Movies = ({movies}) => {
-  // do the map
+const Movies = ({movies, getMovie}) => {
   const movieCards = movies.map(movie => {
       return (
           <MovieCard
@@ -13,7 +12,7 @@ const Movies = ({movies}) => {
             title={movie.title}
             average_rating={movie.average_rating}
             release_date={movie.release_date}
-            // showProfile={this.handleClick}
+            getMovie={getMovie}
           />
         )
 
