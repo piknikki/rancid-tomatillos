@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import logo from './logo.png';
 import './App.css';
-import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
+import Movies from "./Movies";
 
 class App extends Component {
   _isLoaded = false
@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
-      currentMovie: this.getMovie(659986), // change this once onClick is fixed, to {}
+      currentMovie: null, // change this once onClick is fixed, to {}
       error: ''
     }
   }
@@ -26,28 +26,9 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
-  getMovie(id) {
-    this._isLoaded = true; // this isn't working correctly for getMovie, maybe because I'm calling it in the constructor
-
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
-      .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
-      .catch(error => this.setState({ error: error.message }))
-  }
-
-  // handleClick(id) {
-  //   // this._isLoaded = true; // this isn't working correctly for getMovie, maybe because I'm calling it in the constructor
-  //
-  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-  //     .then(response => response.json())
-  //     // .then(data => console.log(data.movie))
-  //     .then(movieData => this.setState({ currentMovie: movieData.movie }))
-  //     .catch(error => this.setState({ error: error.message }))
+  // showAll() {
+  //   this.currentMovie = {}
   // }
-
-  showAll() {
-    this.currentMovie = {}
-  }
 
   componentWillUnmount() {
     this._isLoaded = false;
@@ -60,28 +41,17 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           <span className="title">Rancid Tomatillos</span>
-          <section className="cards">
-            {this.state.allMovies.map((movie) => {
-              return <Movie
-                key={movie.id}
-                id={movie.id}
-                poster_path={movie.poster_path}
-                backdrop_path={movie.backdrop_path}
-                title={movie.title}
-                average_rating={movie.average_rating}
-                release_date={movie.release_date}
-                showProfile={this.handleClick}
-              />
-            })}
-          </section>
-          {this.state.currentMovie &&
-          <section className="profile">
-            <MovieProfile
-              key={this.state.currentMovie.id}
-              data={this.state.currentMovie}
-            />
-          </section>
-          }
+
+            {!this.state.error && this.state.currentMovie
+              ?
+              <section className="profile">
+                <MovieProfile
+                  key={this.state.currentMovie.movie.id}
+                  data={this.state.currentMovie.movie}
+                />
+              </section>
+              :
+              <Movies movies={this.state.allMovies} />}
         </header>
       </div>
     )

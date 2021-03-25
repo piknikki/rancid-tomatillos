@@ -188,7 +188,7 @@ const movieData = {
       "id": 400160,
       "poster_path": "https://image.tmdb.org/t/p/original//gxK2lB1w8an5ViPXzisDsRsyHr0.jpg",
       "backdrop_path": "https://image.tmdb.org/t/p/original//bt4xA9WZE9P1wiRILRFt0Zh2wmV.jpg",
-      "title": "The SpongeBob Movie: Sponge on the Run",
+      "title": "The SpongeBob MovieCard: Sponge on the Run",
       "average_rating": 5.2,
       "release_date": "2020-08-14"
     },
