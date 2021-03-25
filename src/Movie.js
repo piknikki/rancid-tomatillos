@@ -2,8 +2,6 @@ import React from 'react';
 import './Movie.css'
 
 const Movie = ({ id, poster_path, backdrop_path, title, average_rating, release_date }) => {
-  console.log(Math.floor(average_rating))
-
   const rottenTomatillos = '🤢'
 
   return (

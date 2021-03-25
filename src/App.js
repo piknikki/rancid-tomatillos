@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.png';
 import './App.css';
 // import movieData from "./data";
-// import Movie from "./Movie";
+import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
 
 const defaultMovie = {
@@ -21,11 +21,30 @@ const defaultMovie = {
 }
 
 class App extends Component {
+  _isLoaded = false
+
   constructor() {
     super();
+
     this.state = {
-      defaultMovie
+      defaultMovie,
+      allMovies: [],
+      currentMovie: {},
+      error: ''
     }
+  }
+
+  componentDidMount() {
+    this._isLoaded = true;
+
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(allMovies => this.setState({ allMovies: allMovies.movies }))
+      .catch(error => this.setState({ error: error.message }))
+  }
+
+  componentWillUnmount() {
+    this._isLoaded = false;
   }
 
   render() {
@@ -34,19 +53,19 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           <span className="title">Rancid Tomatillos</span>
-          {/*<section className="cards">*/}
-          {/*  {movieData.movies.map((movie) => {*/}
-          {/*    return <Movie*/}
-          {/*      key={movie.id}*/}
-          {/*      id={movie.id}*/}
-          {/*      poster_path={movie.poster_path}*/}
-          {/*      backdrop_path={movie.backdrop_path}*/}
-          {/*      title={movie.title}*/}
-          {/*      average_rating={movie.average_rating}*/}
-          {/*      release_date={movie.release_date}*/}
-          {/*    />*/}
-          {/*  })}*/}
-          {/*</section>*/}
+          <section className="cards">
+            {this.state.allMovies.map((movie) => {
+              return <Movie
+                key={movie.id}
+                id={movie.id}
+                poster_path={movie.poster_path}
+                backdrop_path={movie.backdrop_path}
+                title={movie.title}
+                average_rating={movie.average_rating}
+                release_date={movie.release_date}
+              />
+            })}
+          </section>
           {this.state.defaultMovie &&
             <section className="profile">
               <MovieProfile
