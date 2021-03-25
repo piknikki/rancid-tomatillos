@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import logo from './logo.png';
 import './App.css';
-// import movieData from "./data";
 import Movie from "./Movie";
 import MovieProfile from "./MovieProfile"
 
@@ -43,6 +42,13 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
+  getMovie(id) {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => response.json())
+      .then(currentMovie => this.setState({ currentMovie }))
+      .catch(error => this.setState({ error: error.message }))
+  }
+
   componentWillUnmount() {
     this._isLoaded = false;
   }
@@ -74,7 +80,6 @@ class App extends Component {
               />
             </section>
           }
-
         </header>
       </div>
     )
