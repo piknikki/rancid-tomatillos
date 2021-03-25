@@ -3,6 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import MovieProfile from "./MovieProfile"
 import Movies from "./Movies";
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -44,6 +45,7 @@ class App extends Component {
       <div className="App">
         <header>
           <img src={logo} className="App-logo" alt="logo" />
+          <Route path="/" component={ App } />
           <span className="title">Rancid Tomatillos</span>
             {!!this.state.error &&
               <h2>{this.state.error}</h2>
