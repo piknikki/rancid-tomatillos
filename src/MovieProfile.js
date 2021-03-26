@@ -25,7 +25,7 @@ const MovieProfile = (props) => {
   const formattedCurrency = (value) => numberFormat2.format(value)
 
   return (
-    <>
+    <section className="profile">
       <span className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</span>
       <article className="profile-container" id={id}>
         <img className="backdrop" src={backdrop_path} alt={title}/>
@@ -46,7 +46,7 @@ const MovieProfile = (props) => {
           <button className="delete btn">❌</button>
         </div>
       </article>
-    </>
+    </section>
   )
 }
 

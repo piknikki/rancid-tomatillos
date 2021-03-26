@@ -3,7 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import MovieProfile from "./MovieProfile"
 import Movies from "./Movies";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -45,8 +45,16 @@ class App extends Component {
       <div className="App">
         <header>
           <img src={logo} className="App-logo" alt="logo" />
-          <Route path="/" component={ App } />
-          <Route path="/:id" component={ MovieProfile } />
+          {/*<Route path="/" component={ App } />*/}
+          {/*<Route path="/:id" render={({ match }) => {*/}
+          {/*  const id = match.params.id*/}
+          {/*  return <MovieProfile*/}
+          {/*      key={this.state.currentMovie.id}*/}
+          {/*      data={this.state.currentMovie}*/}
+          {/*      goBack={this.goBack}*/}
+          {/*    />*/}
+          {/*  }}*/}
+          {/*/>*/}
           <span className="title">Rancid Tomatillos</span>
             {!!this.state.error &&
               <h2>{this.state.error}</h2>
@@ -61,13 +69,11 @@ class App extends Component {
             }
 
             {this.state.currentMovie &&
-              <section className="profile">
                 <MovieProfile
                   key={this.state.currentMovie.id}
                   data={this.state.currentMovie}
                   goBack={this.goBack}
                 />
-              </section>
             }
         </header>
       </div>
