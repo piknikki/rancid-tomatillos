@@ -45,21 +45,6 @@ class App extends Component {
       <div className="App">
         <header>
           <img src={logo} className="App-logo" alt="logo" />
-          {/*<Route path="/" component={ App } />*/}
-          <Route
-            exact
-            path="/:id"
-            render={({match}) => {
-              const { id } = match.params;
-              const movieToRender = this.state.allMovies.find(movie => movie.id === Number(id))
-              console.log("MOVIE TO RENDER: ", movieToRender)
-              // return <MovieProfile
-              //   key={movieToRender.id}
-              //   data={movieToRender}
-              //   goBack={this.goBack}
-              // />
-            }}
-          />
           <span className="title">Rancid Tomatillos</span>
             {!!this.state.error &&
               <h2>{this.state.error}</h2>
@@ -73,13 +58,31 @@ class App extends Component {
               <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
             }
 
-            {/*{this.state.currentMovie &&*/}
-            {/*  <MovieProfile*/}
-            {/*    key={this.state.currentMovie.movie.id}*/}
-            {/*    data={this.state.currentMovie.movie}*/}
-            {/*    goBack={this.goBack}*/}
-            {/*  />*/}
-            {/*}*/}
+            {this.state.currentMovie &&
+              <MovieProfile
+                key={this.state.currentMovie.movie.id}
+                data={this.state.currentMovie.movie}
+                goBack={this.goBack}
+              />
+            }
+
+            {/*<Route*/}
+            {/*  exact*/}
+            {/*  path="/:id"*/}
+            {/*  render={({match}) => {*/}
+            {/*    const { id } = match.params;*/}
+            {/*    const movieToRender = this.state.allMovies.filter(movie => movie.id === Number(id))*/}
+            {/*    console.log("MOVIE TO RENDER: ", movieToRender)*/}
+            {/*    return <Movies movies={movieToRender} getMovie={this.getMovie}/>*/}
+            {/*  }}*/}
+            {/*/>*/}
+
+            {/*<Route*/}
+            {/*  exact*/}
+            {/*  path="/"*/}
+            {/*  render={() => <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>}*/}
+            {/*/>*/}
+
         </header>
       </div>
     )
