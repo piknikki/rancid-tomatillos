@@ -52,8 +52,12 @@ class App extends Component {
             render={({match}) => {
               const { id } = match.params;
               const movieToRender = this.state.allMovies.find(movie => movie.id === Number(id))
-              console.log(movieToRender)
-              // return <MovieProfile {...movieToRender} />
+              console.log("MOVIE TO RENDER: ", movieToRender)
+              // return <MovieProfile
+              //   key={movieToRender.id}
+              //   data={movieToRender}
+              //   goBack={this.goBack}
+              // />
             }}
           />
           <span className="title">Rancid Tomatillos</span>
