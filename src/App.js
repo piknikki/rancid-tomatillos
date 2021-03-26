@@ -3,7 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import MovieProfile from "./MovieProfile"
 import Movies from "./Movies";
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class App extends Component {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
       // .then(data => console.log(data.movie))
-      .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
+      .then(currentMovie => this.setState({ currentMovie: currentMovie }))
       .catch(error => this.setState({ error: error.message }))
   }
 
@@ -46,15 +46,15 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           {/*<Route path="/" component={ App } />*/}
-          {/*<Route path="/:id" render={({ match }) => {*/}
-          {/*  const id = match.params.id*/}
-          {/*  return <MovieProfile*/}
-          {/*      key={this.state.currentMovie.id}*/}
-          {/*      data={this.state.currentMovie}*/}
-          {/*      goBack={this.goBack}*/}
-          {/*    />*/}
-          {/*  }}*/}
-          {/*/>*/}
+          <Route
+            exact
+            path="/:id"
+            render={({ match }) => {
+            const id = match.params.id
+            this.getMovie(id)
+
+            }}
+          />
           <span className="title">Rancid Tomatillos</span>
             {!!this.state.error &&
               <h2>{this.state.error}</h2>
@@ -68,13 +68,13 @@ class App extends Component {
               <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
             }
 
-            {this.state.currentMovie &&
-                <MovieProfile
-                  key={this.state.currentMovie.id}
-                  data={this.state.currentMovie}
-                  goBack={this.goBack}
-                />
-            }
+            {/*{this.state.currentMovie &&*/}
+            {/*    <MovieProfile*/}
+            {/*      key={this.state.currentMovie.movie.id}*/}
+            {/*      data={this.state.currentMovie.movie}*/}
+            {/*      goBack={this.goBack}*/}
+            {/*    />*/}
+            {/*}*/}
         </header>
       </div>
     )

@@ -2,7 +2,6 @@ import React from 'react';
 import './MovieProfile.css'
 
 const MovieProfile = (props) => {
-
   const {
     id,
     title,
