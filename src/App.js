@@ -46,13 +46,16 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           {/*<Route path="/" component={ App } />*/}
-          <Route exact path="/:id" >
-            <MovieProfile
-              key={this.state.currentMovie.movie.id}
-              data={this.state.currentMovie.movie}
-              goBack={this.goBack}
-            />
-          </Route>
+          <Route
+            exact
+            path="/:id"
+            render={({match}) => {
+              const { id } = match.params;
+              const movieToRender = this.state.allMovies.find(movie => movie.id === Number(id))
+              console.log(movieToRender)
+              // return <MovieProfile {...movieToRender} />
+            }}
+          />
           <span className="title">Rancid Tomatillos</span>
             {!!this.state.error &&
               <h2>{this.state.error}</h2>
@@ -67,11 +70,11 @@ class App extends Component {
             }
 
             {/*{this.state.currentMovie &&*/}
-            {/*    <MovieProfile*/}
-            {/*      key={this.state.currentMovie.movie.id}*/}
-            {/*      data={this.state.currentMovie.movie}*/}
-            {/*      goBack={this.goBack}*/}
-            {/*    />*/}
+            {/*  <MovieProfile*/}
+            {/*    key={this.state.currentMovie.movie.id}*/}
+            {/*    data={this.state.currentMovie.movie}*/}
+            {/*    goBack={this.goBack}*/}
+            {/*  />*/}
             {/*}*/}
         </header>
       </div>
