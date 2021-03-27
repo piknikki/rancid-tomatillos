@@ -35,7 +35,7 @@ class App extends Component {
      this.setState({ currentMovie: {} })
   }
 
-  // todo ==> hook up delete button on MovieProfile
+  // todo ==> hook up delete button on MovieProfile -- use redirect in router
   // deleteMovie = (id) => {
   //
   // }
@@ -54,18 +54,6 @@ class App extends Component {
             {!this.state.error && !this.state.allMovies.length &&
               <h2>Loading...</h2>
             }
-
-            {/*{!this.state.currentMovie &&*/}
-            {/*  <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>*/}
-            {/*}*/}
-
-            {/*{this.state.currentMovie &&*/}
-            {/*  <MovieProfile*/}
-            {/*    key={this.state.currentMovie.id}*/}
-            {/*    data={this.state.currentMovie}*/}
-            {/*    goBack={this.goBack}*/}
-            {/*  />*/}
-            {/*}*/}
 
             <Route
               exact
