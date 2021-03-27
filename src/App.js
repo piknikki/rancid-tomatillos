@@ -3,6 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import MovieProfile from "./MovieProfile"
 import Movies from "./Movies";
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
-      currentMovie: null,
+      currentMovie: {},
       error: ''
     }
   }
@@ -30,14 +31,15 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
-  goBack = () => {
-     this.setState({ currentMovie: null })
+  resetCurrentMovie = () => {
+     this.setState({ currentMovie: {} })
   }
 
-  // todo ==> hook up delete button on MovieProfile
+  // todo ==> hook up delete button on MovieProfile -- use redirect in router
   // deleteMovie = (id) => {
   //
   // }
+
 
   render() {
     return (
@@ -53,19 +55,25 @@ class App extends Component {
               <h2>Loading...</h2>
             }
 
-            {!this.state.currentMovie &&
-              <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-            }
+            <Route
+              exact
+              path="/:id"
+              render={() => {
+                if (this.state.currentMovie) {
+                  return <MovieProfile
+                    data={this.state.currentMovie}
+                    resetCurrentMovie={this.resetCurrentMovie}
+                  />
+                }
+              }}
+            />
 
-            {this.state.currentMovie &&
-              <section className="profile">
-                <MovieProfile
-                  key={this.state.currentMovie.id}
-                  data={this.state.currentMovie}
-                  goBack={this.goBack}
-                />
-              </section>
-            }
+            <Route
+              exact
+              path="/"
+              render={() => <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>}
+            />
+
         </header>
       </div>
     )
