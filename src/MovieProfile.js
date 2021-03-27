@@ -47,10 +47,14 @@ const MovieProfile = (props) => {
           <p>Budget: {formattedCurrency(budget)}</p>
           <p>Revenue: {formattedCurrency(revenue)}</p>
           <Link to={`/`} >
-            <button className="go-back btn" onClick={() => props.resetCurrentMovie()}>⬅</button>
+            <button className="go-back btn" onClick={() => props.resetCurrentMovie()}>
+              <i className="fas fa-arrow-left"> </i>
+            </button>
           </Link>
           {/* todo ==> make the delete button a redirect? */}
-          <button className="delete btn">❌</button>
+          <button className="delete btn">
+            <i className="fas fa-times"> </i>
+          </button>
         </div>
       </article>
     </section>
