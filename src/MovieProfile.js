@@ -55,6 +55,14 @@ const MovieProfile = (props) => {
           <button className="delete btn">
             <i className="fas fa-times"> </i>
           </button>
+
+          {/*<button className="btn">*/}
+          {/*  <span className="fa-stack fa-2x">*/}
+          {/*    <i className="fal fa-badge fa-stack-2x fa-sm"> </i>*/}
+          {/*    <i className="fal fa-badge-sheriff fa-stack-1x fa-inverse fa-lg"> </i>*/}
+          {/*   <i className="fal fa-asterisk fa-stack-1x fa-inverse fa-lg"> </i>*/}
+          {/*  </span>*/}
+          {/*</button>*/}
         </div>
       </article>
     </section>

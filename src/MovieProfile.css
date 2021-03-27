@@ -56,6 +56,16 @@ font-family: 'Rock Salt', cursive; */
     color: white;
 }
 
+/*.fa-badge {*/
+/*    color: #aec399;*/
+/*}*/
+
+/*.fa-badge-sheriff,*/
+/*.fa-asterisk {*/
+/*    color: forestgreen;*/
+/*    background: white;*/
+/*}*/
+
 .genre {
     border-radius: 15px;
     padding: 5px 10px;
