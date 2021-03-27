@@ -40,6 +40,7 @@ class App extends Component {
   //
   // }
 
+
   render() {
     return (
       <div className="App">
@@ -74,6 +75,19 @@ class App extends Component {
             {/*    const movieToRender = this.state.allMovies.filter(movie => movie.id === Number(id))*/}
             {/*    console.log("MOVIE TO RENDER: ", movieToRender)*/}
             {/*    return <Movies movies={movieToRender} getMovie={this.getMovie}/>*/}
+            {/*  }}*/}
+            {/*/>*/}
+
+            {/*<Route*/}
+            {/*  exact*/}
+            {/*  path="/:id"*/}
+            {/*  render={() => {*/}
+            {/*    if (this.state.currentMovie) {*/}
+            {/*      return <MovieProfile*/}
+            {/*        data={this.state.currentMovie}*/}
+            {/*        goBack={this.goBack}*/}
+            {/*      />*/}
+            {/*    }*/}
             {/*  }}*/}
             {/*/>*/}
 

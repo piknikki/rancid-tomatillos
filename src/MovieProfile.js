@@ -2,6 +2,7 @@ import React from 'react';
 import './MovieProfile.css'
 
 const MovieProfile = (props) => {
+  console.log(props)
   const {
     id,
     title,
