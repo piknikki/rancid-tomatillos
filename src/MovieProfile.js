@@ -29,7 +29,7 @@ const MovieProfile = (props) => {
     <section className="profile">
       <span className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</span>
       <article className="profile-container" id={id}>
-        <img className="backdrop" src={backdrop_path} alt={title}/>
+        <img id="backdrop" className="backdrop" src={backdrop_path} alt={title}/>
 
         <div className="content-wrapper">
           <h1 className="movie-title">{title}</h1>

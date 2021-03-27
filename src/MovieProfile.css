@@ -12,8 +12,12 @@ font-family: 'Rock Salt', cursive; */
     display: block;
     margin: 0 auto;
     width: 100%;
-    opacity: .5;
+
 }
+
+/*#backdrop {*/
+/*    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);*/
+/*}*/
 
 .content-wrapper {
     position: absolute;
@@ -21,6 +25,7 @@ font-family: 'Rock Salt', cursive; */
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
 }
 
 .movie-title {
@@ -56,3 +61,5 @@ font-family: 'Rock Salt', cursive; */
     font-family: 'Raleway', sans-serif;
     margin: 5px;
 }
+
+

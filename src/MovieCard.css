@@ -3,6 +3,10 @@ article {
     padding-top: 45px;
     /*border: 1px solid black;*/
     width: 200px;
+
+}
+a {
+    text-decoration: none;
 }
 
 p {

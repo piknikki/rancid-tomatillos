@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import './Movie.css'
+import './MovieCard.css'
 import {Link} from "react-router-dom";
 
-const MovieCard = ({ id, poster_path, backdrop_path, title, average_rating, release_date, getMovie }) => {
+const MovieCard = ({ id, poster_path, title, average_rating, release_date, getMovie }) => {
   const rottenTomatillos = '🤢'
 
   return (
