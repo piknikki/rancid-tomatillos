@@ -11,7 +11,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
-      currentMovie: null,
+      currentMovie: {},
       error: ''
     }
   }
@@ -27,12 +27,12 @@ class App extends Component {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
       // .then(data => console.log(data.movie))
-      .then(currentMovie => this.setState({ currentMovie: currentMovie }))
+      .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
       .catch(error => this.setState({ error: error.message }))
   }
 
-  goBack = () => {
-     this.setState({ currentMovie: null })
+  resetCurrentMovie = () => {
+     this.setState({ currentMovie: {} })
   }
 
   // todo ==> hook up delete button on MovieProfile
@@ -55,47 +55,36 @@ class App extends Component {
               <h2>Loading...</h2>
             }
 
-            {!this.state.currentMovie &&
-              <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-            }
+            {/*{!this.state.currentMovie &&*/}
+            {/*  <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>*/}
+            {/*}*/}
 
-            {this.state.currentMovie &&
-              <MovieProfile
-                key={this.state.currentMovie.movie.id}
-                data={this.state.currentMovie.movie}
-                goBack={this.goBack}
-              />
-            }
+            {/*{this.state.currentMovie &&*/}
+            {/*  <MovieProfile*/}
+            {/*    key={this.state.currentMovie.id}*/}
+            {/*    data={this.state.currentMovie}*/}
+            {/*    goBack={this.goBack}*/}
+            {/*  />*/}
+            {/*}*/}
 
-            {/*<Route*/}
-            {/*  exact*/}
-            {/*  path="/:id"*/}
-            {/*  render={({match}) => {*/}
-            {/*    const { id } = match.params;*/}
-            {/*    const movieToRender = this.state.allMovies.filter(movie => movie.id === Number(id))*/}
-            {/*    console.log("MOVIE TO RENDER: ", movieToRender)*/}
-            {/*    return <Movies movies={movieToRender} getMovie={this.getMovie}/>*/}
-            {/*  }}*/}
-            {/*/>*/}
+            <Route
+              exact
+              path="/:id"
+              render={() => {
+                if (this.state.currentMovie) {
+                  return <MovieProfile
+                    data={this.state.currentMovie}
+                    resetCurrentMovie={this.resetCurrentMovie}
+                  />
+                }
+              }}
+            />
 
-            {/*<Route*/}
-            {/*  exact*/}
-            {/*  path="/:id"*/}
-            {/*  render={() => {*/}
-            {/*    if (this.state.currentMovie) {*/}
-            {/*      return <MovieProfile*/}
-            {/*        data={this.state.currentMovie}*/}
-            {/*        goBack={this.goBack}*/}
-            {/*      />*/}
-            {/*    }*/}
-            {/*  }}*/}
-            {/*/>*/}
-
-            {/*<Route*/}
-            {/*  exact*/}
-            {/*  path="/"*/}
-            {/*  render={() => <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>}*/}
-            {/*/>*/}
+            <Route
+              exact
+              path="/"
+              render={() => <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>}
+            />
 
         </header>
       </div>
