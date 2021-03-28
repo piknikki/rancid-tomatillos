@@ -4,6 +4,7 @@ import './App.css';
 import MovieProfile from "./MovieProfile"
 import Movies from "./Movies";
 import { Route } from 'react-router-dom';
+import Footer from "./Footer";
 
 class App extends Component {
   constructor() {
@@ -78,6 +79,7 @@ class App extends Component {
             </section>}
           />
         </main>
+        <Footer />
       </div>
     )
   }

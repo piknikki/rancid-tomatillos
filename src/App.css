@@ -43,6 +43,12 @@ main {
   width: 150px;
 }
 
+footer {
+  margin: 0 auto;
+  padding: 0 0 15px;
+  text-align: center;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
