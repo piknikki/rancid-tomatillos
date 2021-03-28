@@ -3,36 +3,37 @@ font-family: 'Raleway Dots', cursive;
 font-family: 'Rock Salt', cursive; */
 
 .profile-container {
-    width: 90vw;
+    width: auto;
     margin: 0 auto;
-    position: relative;
 }
 
-.backdrop {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    opacity: .5;
+article {
+    color: white;
+    padding-top: 0;
 }
 
-.content-wrapper {
+/*.content-container {*/
+
+/*}*/
+
+.content {
     position: absolute;
-    width: 90%;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    padding: 0 50px;
+    width: 100%;
 }
 
 .movie-title {
     font-family: 'Rock Salt', cursive;
-    /*color: white;*/
     font-size: 3rem;
     margin: 0;
 }
 
 .ratings {
     float: right;
+    padding: 20px;
     font-size: 2em;
+    z-index: 10;
 }
 
 .delete {
@@ -46,8 +47,10 @@ font-family: 'Rock Salt', cursive; */
 }
 
 .btn {
-    border-radius: 50%;
-    width: 50px;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: white;
 }
 
 .genre {
@@ -56,3 +59,5 @@ font-family: 'Rock Salt', cursive; */
     font-family: 'Raleway', sans-serif;
     margin: 5px;
 }
+
+

@@ -1,9 +1,22 @@
 /* font-family: 'Raleway', sans-serif;
 font-family: 'Raleway Dots', cursive;
 font-family: 'Rock Salt', cursive; */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-.App {
-  margin: 50px;
+header {
+  padding: 30px 30px 0;
+}
+
+main {
+  /**/
+}
+
+.wrapper {
+  padding: 0 50px 30px;
 }
 
 .App-logo {
@@ -28,6 +41,12 @@ font-family: 'Rock Salt', cursive; */
 
 .poster {
   width: 150px;
+}
+
+footer {
+  margin: 0 auto;
+  padding: 0 0 15px;
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
