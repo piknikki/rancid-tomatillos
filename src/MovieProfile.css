@@ -12,12 +12,12 @@ font-family: 'Rock Salt', cursive; */
     display: block;
     margin: 0 auto;
     width: 100%;
-
+    height: 100%;
 }
 
-/*#backdrop {*/
-/*    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);*/
-/*}*/
+#backdrop {
+    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
+}
 
 .content-wrapper {
     position: absolute;
@@ -55,16 +55,6 @@ font-family: 'Rock Salt', cursive; */
     border: none;
     color: white;
 }
-
-/*.fa-badge {*/
-/*    color: #aec399;*/
-/*}*/
-
-/*.fa-badge-sheriff,*/
-/*.fa-asterisk {*/
-/*    color: forestgreen;*/
-/*    background: white;*/
-/*}*/
 
 .genre {
     border-radius: 15px;

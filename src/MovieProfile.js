@@ -3,7 +3,6 @@ import './MovieProfile.css'
 import {Link} from "react-router-dom";
 
 const MovieProfile = (props) => {
-  console.log(props)
   const {
     id,
     title,
@@ -29,7 +28,10 @@ const MovieProfile = (props) => {
     <section className="profile">
       <span className="ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</span>
       <article className="profile-container" id={id}>
-        <img id="backdrop" className="backdrop" src={backdrop_path} alt={title}/>
+        {/*<img id="backdrop" className="backdrop" src={backdrop_path} alt={title}/>*/}
+        <div id="backdrop" className="backdrop" style={{
+          backgroundImage: `url(${backdrop_path})`
+        }}> </div>
 
         <div className="content-wrapper">
           <h1 className="movie-title">{title}</h1>
@@ -55,14 +57,6 @@ const MovieProfile = (props) => {
           <button className="delete btn">
             <i className="fas fa-times"> </i>
           </button>
-
-          {/*<button className="btn">*/}
-          {/*  <span className="fa-stack fa-2x">*/}
-          {/*    <i className="fal fa-badge fa-stack-2x fa-sm"> </i>*/}
-          {/*    <i className="fal fa-badge-sheriff fa-stack-1x fa-inverse fa-lg"> </i>*/}
-          {/*   <i className="fal fa-asterisk fa-stack-1x fa-inverse fa-lg"> </i>*/}
-          {/*  </span>*/}
-          {/*</button>*/}
         </div>
       </article>
     </section>
