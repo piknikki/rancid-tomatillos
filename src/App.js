@@ -47,34 +47,37 @@ class App extends Component {
         <header>
           <img src={logo} className="App-logo" alt="logo" />
           <span className="title">Rancid Tomatillos</span>
-            {!!this.state.error &&
-              <h2>{this.state.error}</h2>
-            }
-
-            {!this.state.error && !this.state.allMovies.length &&
-              <h2>Loading...</h2>
-            }
-
-            <Route
-              exact
-              path="/:id"
-              render={() => {
-                if (this.state.currentMovie) {
-                  return <MovieProfile
-                    data={this.state.currentMovie}
-                    resetCurrentMovie={this.resetCurrentMovie}
-                  />
-                }
-              }}
-            />
-
-            <Route
-              exact
-              path="/"
-              render={() => <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>}
-            />
-
         </header>
+        <main>
+          {!!this.state.error &&
+          <h2>{this.state.error}</h2>
+          }
+
+          {!this.state.error && !this.state.allMovies.length &&
+          <h2>Loading...</h2>
+          }
+
+          <Route
+            exact
+            path="/:id"
+            render={() => {
+              if (this.state.currentMovie) {
+                return <MovieProfile
+                  data={this.state.currentMovie}
+                  resetCurrentMovie={this.resetCurrentMovie}
+                />
+              }
+            }}
+          />
+
+          <Route
+            exact
+            path="/"
+            render={() => <section className="wrapper">
+              <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+            </section>}
+          />
+        </main>
       </div>
     )
   }

@@ -30,7 +30,8 @@ const MovieProfile = (props) => {
       height: '100vh',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
+      position: 'relative'
     },
 
     contentContainer: {
@@ -42,11 +43,9 @@ const MovieProfile = (props) => {
   }
 
   return (
-    <section className="profile">
-      <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
       <article className="profile-container" id={id}>
-        {/*<img id="backdrop" className="backdrop" src={backdrop_path} alt={title}/>*/}
         <div id="backdrop" className="backdrop" style={styles.header}>
+          <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
           <div className="content-container" style={styles.contentContainer}>
             <div className="content">
               <h1 className="movie-title">{title}</h1>
@@ -76,7 +75,6 @@ const MovieProfile = (props) => {
           </div>
         </div>
       </article>
-    </section>
   )
 }
 
