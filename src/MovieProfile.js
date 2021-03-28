@@ -33,10 +33,10 @@ const MovieProfile = (props) => {
       backgroundSize: 'cover'
     },
 
-    content: {
+    contentContainer: {
       height: '100%',
       width: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      background: 'linear-gradient(0deg, #00000088 30%, #ffffff44 100%)',
       color: 'white'
     }
   }
@@ -47,30 +47,32 @@ const MovieProfile = (props) => {
       <article className="profile-container" id={id}>
         {/*<img id="backdrop" className="backdrop" src={backdrop_path} alt={title}/>*/}
         <div id="backdrop" className="backdrop" style={styles.header}>
-          <div className="content">
-            <h1 className="movie-title">{title}</h1>
-            <h2 className="tagline">{tagline}</h2>
-            <p className="overview">{overview}</p>
-            <p>
-              <span className="release">Release Date: {release_date} </span>
-              <span className="runtime"> Run time: {runtime}</span>
-            </p>
+          <div className="content-container" style={styles.contentContainer}>
+            <div className="content">
+              <h1 className="movie-title">{title}</h1>
+              <h2 className="tagline">{tagline}</h2>
+              <p className="overview">{overview}</p>
+              <p>
+                <span className="release">Release Date: {release_date} </span>
+                <span className="runtime"> Run time: {runtime}</span>
+              </p>
 
-            {genres ? genres.map(genre =>
-              <button className="genre" type="button" key={genre}>{genre}</button>
-            ) : <p> </p>}
+              {genres ? genres.map(genre =>
+                <button className="genre" type="button" key={genre}>{genre}</button>
+              ) : <p> </p>}
 
-            <p>Budget: {formattedCurrency(budget)}</p>
-            <p>Revenue: {formattedCurrency(revenue)}</p>
-            <Link to={`/`} >
-              <button className="go-back btn" onClick={() => props.resetCurrentMovie()}>
-                <i className="fas fa-arrow-left"> </i>
+              <p>Budget: {formattedCurrency(budget)}</p>
+              <p>Revenue: {formattedCurrency(revenue)}</p>
+              <Link to={`/`} >
+                <button className="go-back btn" onClick={() => props.resetCurrentMovie()}>
+                  <i className="fas fa-arrow-left"> </i>
+                </button>
+              </Link>
+              {/* todo ==> make the delete button a redirect? */}
+              <button className="delete btn">
+                <i className="fas fa-times"> </i>
               </button>
-            </Link>
-            {/* todo ==> make the delete button a redirect? */}
-            <button className="delete btn">
-              <i className="fas fa-times"> </i>
-            </button>
+            </div>
           </div>
         </div>
       </article>

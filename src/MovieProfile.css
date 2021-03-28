@@ -11,8 +11,14 @@ article {
     color: white;
 }
 
-#backdrop {
-    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
+.content-container {
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    top: 40%;
+    padding: 50px;
 }
 
 .movie-title {
