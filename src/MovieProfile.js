@@ -1,11 +1,13 @@
 import React from 'react';
 import './MovieProfile.css'
 import {Link} from "react-router-dom";
+import MovieCard from "./MovieCard";
 
 const MovieProfile = (props) => {
   const {
     id,
     title,
+    poster_path,
     backdrop_path,
     release_date,
     overview,
@@ -44,6 +46,11 @@ const MovieProfile = (props) => {
 
   return (
       <article className="profile-container" id={id}>
+        <MovieCard
+          key={id}
+          id={id}
+          poster_path={poster_path}
+        />
         <div id="backdrop" className="backdrop" style={styles.header}>
           <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
           <div className="content-container" style={styles.contentContainer}>
