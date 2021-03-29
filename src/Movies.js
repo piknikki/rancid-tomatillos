@@ -4,9 +4,8 @@ import {Link} from "react-router-dom";
 
 const Movies = ({movies, getMovie}) => {
   const movieCards = movies.map(movie => {
-    console.log(movie.release_date)
       return (
-        <Link to={`/${movie.id}`} >
+        <Link to={`/${movie.id}`} key={movie.id}>
           <MovieCard
             key={movie.id}
             id={movie.id}
