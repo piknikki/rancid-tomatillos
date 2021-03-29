@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import logo from './tomatillo3.png';
+import logo from '../tomatillo3.png';
 import './App.css';
-import MovieProfile from "./MovieProfile"
-import Movies from "./Movies";
+import MovieProfile from "../MovieProfile/MovieProfile"
+import Movies from "../Movies/Movies";
 import { Route } from 'react-router-dom';
-import Footer from "./Footer";
-import { getAllMovies, getOneMovie } from "./apiCalls";
+import Footer from "../Footer/Footer";
+import { getAllMovies, getOneMovie } from "../apiCalls";
 
 class App extends Component {
   constructor() {
