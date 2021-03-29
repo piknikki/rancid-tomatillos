@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import logo from './tomatillo.png';
+import logo from './tomatillo3.png';
 import './App.css';
 import MovieProfile from "./MovieProfile"
 import Movies from "./Movies";
 import { Route } from 'react-router-dom';
 import Footer from "./Footer";
+import { getAllMovies, getOneMovie } from "./apiCalls";
 
 class App extends Component {
   constructor() {
@@ -18,16 +19,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
-      .then(response => response.json())
+    getAllMovies()
       .then(allMovies => this.setState({ allMovies: allMovies.movies }))
       .catch(error => this.setState({ error: error.message }))
   }
 
   getMovie = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
-      // .then(data => console.log(data.movie))
+    getOneMovie(id)
       .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
       .catch(error => this.setState({ error: error.message }))
   }
