@@ -12,21 +12,31 @@ article {
     padding-top: 0;
 }
 
-/*.content-container {*/
-
-/*}*/
-
 .content {
     position: absolute;
     top: 50%;
     padding: 0 50px;
     width: 100%;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    padding-left: 20px;
 }
 
 .movie-title {
     font-family: 'Rock Salt', cursive;
     font-size: 3rem;
     margin: 0;
+    line-height: 1.2em;
+}
+
+.year {
+    font-size: 0.5em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: lighter;
 }
 
 .ratings {
@@ -34,6 +44,20 @@ article {
     padding: 20px;
     font-size: 2em;
     z-index: 10;
+}
+
+.runtime {
+    margin: 10px 0;
+}
+
+.tagline {
+    font-size: 1.1em;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+.overview {
+    margin: 10px 0;
 }
 
 .delete {
@@ -47,10 +71,10 @@ article {
 }
 
 .btn {
-    margin-top: 20px;
+    margin: 20px;
     background: none;
     border: none;
-    color: white;
+    color: #4e4d4d;
 }
 
 .genre {
@@ -60,4 +84,8 @@ article {
     margin: 5px;
 }
 
-
+.profile-card {
+    height: 330px;
+    width: 200px;
+    border-radius: 5px;
+}
