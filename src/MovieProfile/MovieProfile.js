@@ -8,7 +8,6 @@ const MovieProfile = (props) => {
     title,
     poster_path,
     backdrop_path,
-    release_date,
     overview,
     average_rating,
     genres,
@@ -53,7 +52,7 @@ const MovieProfile = (props) => {
               <img className="profile-card" src={poster_path} alt={title}/>
               <div className="wrapper">
                 <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
-                <h1 className="movie-title">{title} <span className="year">({release_date})</span></h1>
+                <h1 className="movie-title">{title} <span className="year">(2020)</span></h1>
                 <span className="runtime"> Run time: {runtime}m</span>
                 <p className="tagline"><em>{tagline}</em></p>
                 <h3>Overview</h3>
