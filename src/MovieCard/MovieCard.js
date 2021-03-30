@@ -11,8 +11,11 @@ const MovieCard = ({ id, poster_path, title, average_rating, release_date, getMo
     <article className="movie-card" id={id} onClick={() => getMovie(id)}>
       <img className="poster" src={poster_path} alt={title} />
       <p className="movie-ratings">{rottenTomatillos.repeat(Math.floor(average_rating))}</p>
-      <h3 className="movie">{title}</h3>
-      <h5 className="movie-release">{release_date}</h5>
+      <section className="movie-info">
+        <h3 className="movie">{title}</h3>
+        <h5 className="movie-release">{release_date}</h5>
+      </section>
+
     </article>
   )
 }

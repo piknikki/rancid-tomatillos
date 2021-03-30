@@ -1,7 +1,7 @@
 .movie-card {
     margin: 15px;
     padding-top: 15px;
-    width: 150px;
+    width: 160px;
     font-family: 'Raleway', sans-serif
 }
 
@@ -10,7 +10,7 @@ a {
 }
 
 .poster {
-    width: 150px;
+    width: 160px;
     margin: 0 auto;
     border-radius: 5px;
 }
@@ -36,4 +36,8 @@ a {
     font-size: 0.9em;
     color: black;
     letter-spacing: 1px;
+}
+
+.movie-info {
+    padding: 5px;
 }
