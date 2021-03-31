@@ -2,12 +2,12 @@ import React from 'react'
 import './NoRoute.css'
 import { Link } from "react-router-dom";
 
-const imgUrl = "../images/splat.png"
+import splat from "../images/splat.png"
 
 const styles = {
   header: {
-    backgroundImage: `url(${imgUrl})`,
-    height: '100vh',
+    backgroundImage: `url(${splat})`,
+    height: '90vh',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -17,7 +17,7 @@ const styles = {
   contentContainer: {
     height: '100%',
     width: '100%',
-    // background: 'linear-gradient(0deg, #00000099 30%, #ffffff99 100%)',
+    background: 'linear-gradient(0deg, #00000050 20%, #ffffff50 100%)',
   }
 }
 
