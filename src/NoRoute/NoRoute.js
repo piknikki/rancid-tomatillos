@@ -24,7 +24,6 @@ const styles = {
 const NoRoute = () => {
   return (
     <div className="wrapper-404" style={styles.header}>
-      {/*<img src="../images/splat.png" alt="Oops 404 not found"/>*/}
       <div className="oops" style={styles.contentContainer}>
         <h3>Oops!</h3>
         <Link to="/">Go back to main page . . .
