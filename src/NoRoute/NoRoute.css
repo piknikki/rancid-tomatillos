@@ -1,3 +1,25 @@
+.wrapper-404 {
+    width: 90vw;
+    margin: 0 auto;
+    font-family: 'Rock Salt', cursive;
+    font-size: 2em;
+    color: black;
+}
+
 .four-oh-four {
-    background: url("../../public/images/splat.png");
+    /*background: url("../images/splat.png");*/
+    width: 90vw;
+    padding-top: -40px;
+}
+
+.oops {
+    padding: 50px;
+}
+
+a:visited {
+    color: black;
+}
+
+.fa-home {
+    margin: 0 5px;
 }

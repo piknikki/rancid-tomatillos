@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import logo from '../tomatillo3.png';
+import logo from '../images/tomatillo3.png';
 import './App.css';
 import MovieProfile from "../MovieProfile/MovieProfile"
 import Movies from "../Movies/Movies";
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import { getAllMovies, getOneMovie } from "../apiCalls";
 import NoRoute from "../NoRoute/NoRoute";
@@ -58,29 +58,31 @@ class App extends Component {
           {!this.state.error && !this.state.allMovies.length &&
           <h2>Loading...</h2>
           }
+          <Switch>
+            <Route exact path="/no-route" render={() => <NoRoute />} />
+            <Route
+              exact
+              path="/:id"
+              render={() => {
+                if (this.state.currentMovie) {
+                  return <MovieProfile
+                    data={this.state.currentMovie}
+                    resetCurrentMovie={this.resetCurrentMovie}
+                  />
+                }
+              }}
+            />
 
-          <Route
-            exact
-            path="/:id"
-            render={() => {
-              if (this.state.currentMovie) {
-                return <MovieProfile
-                  data={this.state.currentMovie}
-                  resetCurrentMovie={this.resetCurrentMovie}
-                />
-              }
-            }}
-          />
+            <Route
+              exact
+              path="/"
+              render={() => <section className="wrapper">
+                <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+              </section>}
+            />
 
-          <Route
-            exact
-            path="/"
-            render={() => <section className="wrapper">
-              <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-            </section>}
-          />
 
-          <Route path="*" component={NoRoute} />
+          </Switch>
         </main>
         <Footer />
       </div>
