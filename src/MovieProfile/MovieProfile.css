@@ -12,6 +12,10 @@ article {
     padding-top: 0;
 }
 
+.button-container {
+    padding: 20px 40px;
+}
+
 .content {
     position: absolute;
     top: 50%;
