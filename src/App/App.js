@@ -61,12 +61,8 @@ class App extends Component {
           <Switch>
             <Route
               exact
-              path="/:id"
-              render={({ match }) => {
-                if (isNaN(Number(match.params.id))) {
-                  return <NoRoute />
-                }
-
+              path="/movie/:id"
+              render={() => {
                 if (this.state.currentMovie) {
                   return <MovieProfile
                     data={this.state.currentMovie}
@@ -83,6 +79,8 @@ class App extends Component {
                 <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
               </section>}
             />
+
+            <Route path="*" render={() => <NoRoute />} />
           </Switch>
         </main>
         <Footer />
