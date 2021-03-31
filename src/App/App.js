@@ -3,9 +3,10 @@ import logo from '../tomatillo3.png';
 import './App.css';
 import MovieProfile from "../MovieProfile/MovieProfile"
 import Movies from "../Movies/Movies";
-import { Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import { getAllMovies, getOneMovie } from "../apiCalls";
+import NoRoute from "../NoRoute/NoRoute";
 
 class App extends Component {
   constructor() {
@@ -44,8 +45,10 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <img src={logo} className="App-logo" alt="logo" />
-          <span className="title">Rancid Tomatillos</span>
+          <Link to="/" className="header-link">
+            <img src={logo} className="App-logo" alt="logo" />
+            <span className="title">Rancid Tomatillos</span>
+          </Link>
         </header>
         <main>
           {!!this.state.error &&
@@ -76,6 +79,8 @@ class App extends Component {
               <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
             </section>}
           />
+
+          <Route path="*" component={NoRoute} />
         </main>
         <Footer />
       </div>

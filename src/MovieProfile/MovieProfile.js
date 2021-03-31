@@ -1,6 +1,6 @@
 import React from 'react';
 import './MovieProfile.css'
-import {Link} from "react-router-dom";
+import Buttons from "../Buttons/Buttons";
 
 const MovieProfile = (props) => {
   const {
@@ -39,15 +39,8 @@ const MovieProfile = (props) => {
       <article className="profile-container" id={id}>
         <div id="backdrop" className="backdrop" style={styles.header}>
           <div style={styles.contentContainer}>
-            <Link to={`/`} >
-              <button className="go-back btn" onClick={() => props.resetCurrentMovie()}>
-                <i className="fas fa-arrow-left"> </i>
-              </button>
-            </Link>
-            {/* todo ==> make the delete button a redirect? */}
-            <button className="delete btn">
-              <i className="fas fa-times"> </i>
-            </button>
+            <Buttons resetCurrentMovie={props.resetCurrentMovie} />
+
             <div className="content">
               <img className="profile-card" src={poster_path} alt={title}/>
               <div className="wrapper">
