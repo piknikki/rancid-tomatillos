@@ -17,28 +17,10 @@ const MovieProfile = (props) => {
 
   const tomatillos = '🤢'
 
-  const styles = {
-    header: {
-      backgroundImage: `url(${backdrop_path})`,
-      height: '100vh',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      position: 'relative'
-    },
-
-    contentContainer: {
-      height: '100%',
-      width: '100%',
-      background: 'linear-gradient(0deg, #00000099 30%, #ffffff99 100%)',
-      color: 'white'
-    }
-  }
-
   return (
       <article className="profile-container" id={id}>
-        <div id="backdrop" className="backdrop" style={styles.header}>
-          <div style={styles.contentContainer}>
+        <div id="backdrop" className="backdrop" style={{backgroundImage: `url(${backdrop_path})`}}>
+          <div id="contentContainer" >
             <Buttons resetCurrentMovie={props.resetCurrentMovie} />
 
             <div className="content">

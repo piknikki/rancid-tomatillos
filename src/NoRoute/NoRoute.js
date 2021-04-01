@@ -2,7 +2,7 @@ import React from 'react'
 import './NoRoute.css'
 import { Link } from "react-router-dom";
 
-import splat from "../images/splat.png"
+import splat from "../assets/splat.png"
 
 const styles = {
   header: {
@@ -26,7 +26,7 @@ const NoRoute = () => {
     <div className="wrapper-404" style={styles.header}>
       <div className="oops" style={styles.contentContainer}>
         <h3>Oops!</h3>
-        <Link to="/">Go back to main page . . .
+        <Link to="/" className="btn">Go back to main page . . .
           <i className="far fa-home fa-2x"></i>
         </Link>
       </div>
