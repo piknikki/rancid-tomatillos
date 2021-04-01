@@ -3,6 +3,8 @@ import './MovieProfile.css'
 import Buttons from "../Buttons/Buttons";
 
 const MovieProfile = (props) => {
+  const year = props.year
+
   const {
     id,
     title,
@@ -27,7 +29,7 @@ const MovieProfile = (props) => {
               <img className="profile-card" src={poster_path} alt={title}/>
               <div className="wrapper">
                 <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
-                <h1 className="movie-title">{title} <span className="year">(2020)</span></h1>
+                <h1 className="movie-title">{title} <span className="year">({year})</span></h1>
                 <span className="runtime"> Run time: {runtime}m</span>
                 <p className="tagline"><em>{tagline}</em></p>
                 <h3>Overview</h3>
