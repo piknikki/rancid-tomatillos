@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from '../images/tomatillo3.png';
+import logo from '../assets/tomatillo3.png';
 import './App.css';
 import MovieProfile from "../MovieProfile/MovieProfile"
 import Movies from "../Movies/Movies";
@@ -47,8 +47,8 @@ class App extends Component {
         <header>
           <Link to="/" className="header-link">
             <img src={logo} className="App-logo" alt="logo" />
-            <span className="title">Rancid Tomatillos</span>
           </Link>
+          <span className="title">Rancid Tomatillos</span>
         </header>
         <main>
           {!!this.state.error &&

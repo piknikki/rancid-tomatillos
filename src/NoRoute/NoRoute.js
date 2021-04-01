@@ -2,7 +2,7 @@ import React from 'react'
 import './NoRoute.css'
 import { Link } from "react-router-dom";
 
-import splat from "../images/splat.png"
+import splat from "../assets/splat.png"
 
 const styles = {
   header: {
