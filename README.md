@@ -27,7 +27,11 @@ Here is the deployed site:  [Rancid Tomatillos](https://rancid-tomatillos-np.her
 
 ## Available Scripts
 
-In the project directory, you can run:
+Feel free to clone the repo, and then in the project directory you can run:
+
+### `yarn install`
+
+Installs all dependencies and packages required to run the project locally.
 
 ### `yarn start`
 
@@ -36,6 +40,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `yarn run cypress:open`
+
+Runs cypress testing -- a browser window will open, and you click on the tests you want to run (then 
+another window will open, showing you those tests as it runs them).
 
 ### `yarn build`
 

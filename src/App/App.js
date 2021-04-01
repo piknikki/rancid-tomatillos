@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       allMovies: [],
       currentMovie: {},
+      currentMovieDate: '',
       error: ''
     }
   }
@@ -27,18 +28,23 @@ class App extends Component {
 
   getMovie = (id) => {
     getOneMovie(id)
-      .then(currentMovie => this.setState({ currentMovie: currentMovie.movie }))
+      .then(currentMovie => this.setState({
+        currentMovie: currentMovie.movie,
+        currentMovieDate: currentMovie.movie.release_date.split('-')[0]
+      }))
       .catch(error => this.setState({ error: error.message }))
   }
 
   resetCurrentMovie = () => {
-     this.setState({ currentMovie: {} })
+     this.setState({
+       currentMovie: {}
+     })
   }
 
   // todo ==> hook up delete button on MovieProfile -- use redirect in router
-  // deleteMovie = (id) => {
-  //
-  // }
+  deleteMovie = (id) => {
+    this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
+  }
 
 
   render() {
@@ -66,7 +72,9 @@ class App extends Component {
                 if (this.state.currentMovie) {
                   return <MovieProfile
                     data={this.state.currentMovie}
+                    year={this.state.currentMovieDate}
                     resetCurrentMovie={this.resetCurrentMovie}
+                    deleteMovie={this.deleteMovie}
                   />
                 }
               }}
