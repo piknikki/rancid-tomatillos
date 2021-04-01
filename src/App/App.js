@@ -42,9 +42,9 @@ class App extends Component {
   }
 
   // todo ==> hook up delete button on MovieProfile -- use redirect in router
-  // deleteMovie = (id) => {
-  //
-  // }
+  deleteMovie = (id) => {
+    this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
+  }
 
 
   render() {
@@ -74,6 +74,7 @@ class App extends Component {
                     data={this.state.currentMovie}
                     year={this.state.currentMovieDate}
                     resetCurrentMovie={this.resetCurrentMovie}
+                    deleteMovie={this.deleteMovie}
                   />
                 }
               }}

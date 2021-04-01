@@ -23,7 +23,11 @@ const MovieProfile = (props) => {
       <article className="profile-container" id={id}>
         <div id="backdrop" className="backdrop" style={{backgroundImage: `url(${backdrop_path})`}}>
           <div id="contentContainer" >
-            <Buttons resetCurrentMovie={props.resetCurrentMovie} />
+            <Buttons
+              resetCurrentMovie={props.resetCurrentMovie}
+              deleteMovie={props.deleteMovie}
+              id={id}
+            />
 
             <div className="content">
               <img className="profile-card" src={poster_path} alt={title}/>

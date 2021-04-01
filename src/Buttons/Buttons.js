@@ -9,10 +9,13 @@ const Buttons = (props) => {
           <i className="fas fa-arrow-left"> </i>
         </button>
       </Link>
-      {/* todo ==> make the delete button a redirect? */}
-      <button className="delete btn">
-        <i className="fas fa-times"> </i>
-      </button>
+
+      <Link to={`/`} >
+        <button className="delete btn" onClick={() => props.deleteMovie(props.id)}>
+          <i className="fas fa-times"> </i>
+        </button>
+      </Link>
+
     </div>
   )
 }
