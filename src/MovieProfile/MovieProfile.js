@@ -35,7 +35,7 @@ const MovieProfile = (props) => {
                 <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
                 <h1 className="movie-title">{title} <span className="year">({year})</span></h1>
                 <span className="runtime"> Run time: {runtime}m</span>
-                <p className="tagline"><em>{tagline}</em></p>
+                {tagline ? <p className="tagline"><em>{tagline}</em></p> : <p className="tagline"> </p>}
                 <h3>Overview</h3>
                 <p className="overview">{overview}</p>
 

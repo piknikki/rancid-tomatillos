@@ -42,7 +42,7 @@ article {
 
 .wrapper {
     width: 100%;
-    padding-left: 20px;
+    padding: 10px 0 0 40px;
 }
 
 .movie-title {
@@ -66,17 +66,17 @@ article {
 }
 
 .runtime {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .tagline {
     font-size: 1.1em;
     font-weight: lighter;
-    margin-bottom: 10px;
+    margin: 20px 0;
 }
 
 .overview {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .delete {
@@ -100,7 +100,7 @@ article {
     border-radius: 15px;
     padding: 5px 10px;
     font-family: 'Raleway', sans-serif;
-    margin: 5px;
+    margin: 20px 0;
 }
 
 .profile-card {
