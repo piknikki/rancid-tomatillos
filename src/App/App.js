@@ -52,6 +52,24 @@ class App extends Component {
     this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
   }
 
+  displayMovies = () => {
+    if (this.state.allMovies) {
+      return (
+        <section className="wrapper">
+          <SearchBar findMovie={this.findMovie}/>
+          <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    } else if (this.state.foundMovies) {
+      return (
+        <section className="wrapper">
+          <SearchBar findMovie={this.findMovie}/>
+          <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    }
+  }
+
 
   render() {
     return (
@@ -90,10 +108,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <section className="wrapper">
-                <SearchBar findMovie={this.findMovie}/>
-                <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-              </section>}
+              render={() => this.displayMovies}
             />
 
             <Route path="*" render={() => <NoRoute />} />
