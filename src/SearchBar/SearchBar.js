@@ -33,7 +33,7 @@ export default class SearchBar extends Component {
             className="searchBtn"
             type="submit"
             value="Search"
-            onClick={this.props.findMovie}
+            onClick={this.props.findMovie(this.state.searchTerm)}
           />
         </form>
       </div>

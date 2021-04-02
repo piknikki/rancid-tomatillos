@@ -60,7 +60,7 @@ class App extends Component {
           <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
         </section>
       )
-    } else if (this.state.allMovies) {
+    } else {
       return (
         <section className="wrapper">
           <SearchBar findMovie={this.findMovie}/>
@@ -109,9 +109,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => {
-                return this.displayMovies()
-              }}
+              render={() => this.displayMovies}
             />
 
             <Route path="*" render={() => <NoRoute />} />
