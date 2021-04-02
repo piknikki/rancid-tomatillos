@@ -1,23 +1,25 @@
 describe('Feedback Loop', () => {
 
+  beforeEach(() => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/539885', {fixture: 'mock-movieProfile.json'})
+    .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'mock-movies.json'})
+    .visit('http://localhost:3000')
+  })
+
   it('Should be able to visit the page and render the correct elements', () => {
-    cy.visit('http://localhost:3000')
     cy.get('header').contains('Rancid Tomatillos')
   });
 
   it('Should get all the movies', () => {
-    cy.visit('http://localhost:3000/694919')
-
-    cy.url().should('include', '/694919')
+    cy.get('h1').contains('Welcome.')
   });
 
   it('Should show one movie', () => {
-    cy.visit('http://localhost:3000')
-    cy.get('#694919').click()
-    cy.url().should('include', '/694919')
-    cy.get('.movie-title').contains('Money Plane')
-    cy.get('button.go-back').should('exist')
-    cy.get('button.delete').should('exist')
+    cy.get('#539885').should('exist').click()
+    cy.url().should('include', '/539885')
+    cy.get('.movie-title').contains('Ava')
+    cy.get('.go-back').should('exist')
+    cy.get('.delete').should('exist')
   });
 
   it('Should show 404 page when no such page exists', () => {

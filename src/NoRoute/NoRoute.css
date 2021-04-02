@@ -4,6 +4,11 @@
     font-family: 'Rock Salt', cursive;
     font-size: 2em;
     color: black;
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .four-oh-four {
@@ -14,6 +19,9 @@
 
 .oops {
     padding: 50px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, #00000050 20%, #ffffff50 100%);
 }
 
 a:visited {
