@@ -53,18 +53,18 @@ class App extends Component {
   }
 
   displayMovies = () => {
-    if (this.state.allMovies) {
-      return (
-        <section className="wrapper">
-          <SearchBar findMovie={this.findMovie}/>
-          <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-        </section>
-      )
-    } else if (this.state.foundMovies) {
+    if (this.state.foundMovies.length > 0) {
       return (
         <section className="wrapper">
           <SearchBar findMovie={this.findMovie}/>
           <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    } else if (this.state.allMovies) {
+      return (
+        <section className="wrapper">
+          <SearchBar findMovie={this.findMovie}/>
+          <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
         </section>
       )
     }
@@ -89,6 +89,7 @@ class App extends Component {
           {!this.state.error && !this.state.allMovies.length &&
           <h2>Loading...</h2>
           }
+
           <Switch>
             <Route
               exact
@@ -108,7 +109,9 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => this.displayMovies}
+              render={() => {
+                return this.displayMovies()
+              }}
             />
 
             <Route path="*" render={() => <NoRoute />} />
