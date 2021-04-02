@@ -59,7 +59,6 @@ class App extends Component {
         </header>
 
         <main>
-          <SearchBar />
           {!!this.state.error &&
           <h2>{this.state.error}</h2>
           }
@@ -87,6 +86,7 @@ class App extends Component {
               exact
               path="/"
               render={() => <section className="wrapper">
+                <SearchBar />
                 <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
               </section>}
             />

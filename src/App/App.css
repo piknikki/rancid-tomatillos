@@ -15,12 +15,8 @@ header {
   background: #a7bca7;
 }
 
-main {
-  margin: 0 5%;
-}
-
 .wrapper {
-  padding: 0 50px 30px;
+  padding: 0;
 }
 
 .App-logo {
@@ -32,6 +28,7 @@ main {
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: flex-start;
+  padding: 10px 40px;
 }
 
 .title {
