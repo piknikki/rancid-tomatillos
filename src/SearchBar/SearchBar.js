@@ -10,9 +10,9 @@ export default class SearchBar extends Component {
     }
   }
 
-  getSearchTerm = (event) => {
+  sendSearchTerm = (event) => {
     event.preventDefault()
-    this.setState({ searchTerm: event.target.value })
+    this.props.findMovie(this.state.searchTerm)
   }
 
   render() {
@@ -26,14 +26,14 @@ export default class SearchBar extends Component {
             <input
               type="text"
               placeholder="Search for a movie......."
-              onChange={this.getSearchTerm}
+              onChange={(event) => this.setState({searchTerm: event.target.value})}
             />
           </label>
           <input
             className="searchBtn"
             type="submit"
             value="Search"
-            onClick={this.props.findMovie(this.state.searchTerm)}
+            onClick={() => this.sendSearchTerm()}
           />
         </form>
       </div>

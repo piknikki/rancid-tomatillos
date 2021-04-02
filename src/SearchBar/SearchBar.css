@@ -1,5 +1,5 @@
 .searchbar-container {
-    background: #0a4f3d;
+    background: #99bfb5;
     padding: 2% 10% 4%;
     font-family: 'Raleway', sans-serif;
     color: white;
@@ -17,8 +17,7 @@ h3 {
 
 form {
     position: relative;
-    margin-top: 20px;
-
+    margin: 20px 10% 0;
 }
 
 form input[type=text] {

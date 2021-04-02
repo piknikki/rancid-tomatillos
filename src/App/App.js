@@ -43,33 +43,32 @@ class App extends Component {
      })
   }
 
-  // todo ==> hook up delete button on MovieProfile -- use redirect in router
   deleteMovie = (id) => {
     this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
   }
 
   findMovie = (searchTerm) => {
-    this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
+    console.log(searchTerm)
+    // this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
   }
 
-  displayMovies = () => {
-    if (this.state.foundMovies.length > 0) {
-      return (
-        <section className="wrapper">
-          <SearchBar findMovie={this.findMovie}/>
-          <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
-        </section>
-      )
-    } else {
-      return (
-        <section className="wrapper">
-          <SearchBar findMovie={this.findMovie}/>
-          <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-        </section>
-      )
-    }
-  }
-
+  // displayMovies = () => {
+  //   if (this.state.foundMovies.length > 0) {
+  //     return (
+  //       <section className="wrapper">
+  //         <SearchBar findMovie={this.findMovie}/>
+  //         <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
+  //       </section>
+  //     )
+  //   } else {
+  //     return (
+  //       <section className="wrapper">
+  //         <SearchBar findMovie={this.findMovie}/>
+  //         <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+  //       </section>
+  //     )
+  //   }
+  // }
 
   render() {
     return (
@@ -109,7 +108,14 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => this.displayMovies}
+              render={() => {
+                return (
+                  <section className="wrapper">
+                    <SearchBar findMovie={this.findMovie}/>
+                    <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+                  </section>
+                )
+              }}
             />
 
             <Route path="*" render={() => <NoRoute />} />

@@ -12,7 +12,7 @@ header {
   display: flex;
   align-items: center;
   width: auto;
-  background: #a7bca7;
+  background: #495a49;
 }
 
 .wrapper {
@@ -36,7 +36,7 @@ header {
   margin-left: 20px;
   font-size: 2em;
   font-weight: 700;
-  color: #3b3b3b;
+  color: #ffffff;
 }
 
 .poster {
