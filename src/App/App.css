@@ -35,11 +35,7 @@ header {
   margin-left: 20px;
   font-size: 2em;
   font-weight: 700;
-  color: black;
-}
-
-.title:visited {
-  color: black;
+  color: #3b3b3b;
 }
 
 .poster {

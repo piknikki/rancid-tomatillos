@@ -1,0 +1,14 @@
+svg {
+    color: #3b3b3b;
+    margin: 20px;
+}
+
+.delete {
+    float: right;
+    font-size: 2em;
+}
+
+.go-back {
+    float: left;
+    font-size: 2em;
+}

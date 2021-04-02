@@ -79,23 +79,6 @@ article {
     margin: 20px 0;
 }
 
-.delete {
-    float: right;
-    font-size: 2em;
-}
-
-.go-back {
-    float: left;
-    font-size: 2em;
-}
-
-.btn {
-    margin: 20px;
-    background: none;
-    border: none;
-    color: #4e4d4d;
-}
-
 .genre {
     border-radius: 15px;
     padding: 5px 10px;
