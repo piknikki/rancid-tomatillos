@@ -15,6 +15,10 @@ header {
   background: #a7bca7;
 }
 
+main {
+  margin: 0 5%;
+}
+
 .wrapper {
   padding: 0 50px 30px;
 }

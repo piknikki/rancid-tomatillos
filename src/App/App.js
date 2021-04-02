@@ -7,6 +7,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import { getAllMovies, getOneMovie } from "../apiCalls";
 import NoRoute from "../NoRoute/NoRoute";
+import SearchBar from "../SearchBar/SearchBar";
 
 class App extends Component {
   constructor() {
@@ -56,7 +57,9 @@ class App extends Component {
           </Link>
           <span className="title">Rancid Tomatillos</span>
         </header>
+
         <main>
+          <SearchBar />
           {!!this.state.error &&
           <h2>{this.state.error}</h2>
           }

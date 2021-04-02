@@ -14,14 +14,8 @@ const MovieProfile = (props) => {
     average_rating,
     genres,
     runtime,
-    tagline,
-    // ...rest
+    tagline
   } = props.data
-
-  // let movieYear
-  // useEffect(() => {
-  //   movieYear = rest.release_date.split('-')[0]
-  // })
 
   const tomatillos = '🤢'
 
