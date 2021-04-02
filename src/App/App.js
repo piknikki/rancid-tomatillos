@@ -15,6 +15,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
+      foundMovies: [],
       currentMovie: {},
       currentMovieDate: '',
       error: ''
@@ -45,6 +46,10 @@ class App extends Component {
   // todo ==> hook up delete button on MovieProfile -- use redirect in router
   deleteMovie = (id) => {
     this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
+  }
+
+  findMovie = (searchTerm) => {
+    this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
   }
 
 
@@ -86,7 +91,7 @@ class App extends Component {
               exact
               path="/"
               render={() => <section className="wrapper">
-                <SearchBar />
+                <SearchBar findMovie={this.findMovie}/>
                 <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
               </section>}
             />
