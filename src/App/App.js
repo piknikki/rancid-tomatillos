@@ -50,7 +50,7 @@ class App extends Component {
   findMovie = (event, searchTerm) => {
     event.preventDefault()
     console.log(searchTerm)
-    this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
+    this.setState({ foundMovies: this.allMovies.filter(movie => movie.title.includes(searchTerm))} )
     console.log(this.state.foundMovies)
   }
 
