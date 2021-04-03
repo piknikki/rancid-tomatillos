@@ -47,11 +47,14 @@ class App extends Component {
     this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
   }
 
-  findMovie = (searchTerm) => {
+  findMovie = (event, searchTerm) => {
+    event.preventDefault()
     console.log(searchTerm)
-    // this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
+    this.setState({ foundMovies: this.allMovies.find(movie => movie.title.includes(searchTerm))} )
+    console.log(this.state.foundMovies)
   }
 
+  // todo ==> use this once I figure out the search bar situation
   // displayMovies = () => {
   //   if (this.state.foundMovies.length > 0) {
   //     return (

@@ -36,7 +36,7 @@ input:active {
     border: none;
 }
 
-form input[type=submit] {
+form button.searchBtn {
     display: inline-flex;
     justify-content: center;
     align-content: center;

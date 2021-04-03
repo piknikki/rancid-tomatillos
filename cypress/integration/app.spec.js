@@ -27,7 +27,11 @@ describe('Feedback Loop', () => {
 
     cy.get('h3').contains('Oops!')
     cy.get('.btn').should('exist').click()
-    cy.url ().should('eq', 'http://localhost:3000/')
+    cy.url().should('eq', 'http://localhost:3000/')
   });
+
+  // test loading... using a mocked state
+  // test errors using a mocked state
+
 
 });
