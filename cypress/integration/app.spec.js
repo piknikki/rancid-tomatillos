@@ -12,14 +12,22 @@ describe('Feedback Loop', () => {
 
   it('Should get all the movies', () => {
     cy.get('h1').contains('Welcome.')
+    cy.get('.cards')
+      .find('a')
+      .should('have.length', 4)
+  });
+
+  it('Should show errors if no movies exist', () => {
+    // cy.get('.cards')
+
   });
 
   it('Should show one movie', () => {
     cy.get('#539885').should('exist').click()
     cy.url().should('include', '/539885')
     cy.get('.movie-title').contains('Ava')
-    cy.get('.go-back').should('exist')
-    cy.get('.delete').should('exist')
+      .get('.go-back').should('exist')
+      .get('.delete').should('exist')
   });
 
   it('Should show 404 page when no such page exists', () => {
@@ -33,5 +41,14 @@ describe('Feedback Loop', () => {
   // test loading... using a mocked state
   // test errors using a mocked state
 
+  it('should have a loading element before movies are fetched', () => {
+    const now = new Date(Date.UTC(2017, 2, 14)).getTime()
+
+    cy.clock(now)
+    cy.visit('http://localhost:3000/')
+    cy.get('.loading').should('have.text', 'Loading...')
+    cy.tick(5000)
+    cy.get('h1').contains('Welcome.')
+  })
 
 });

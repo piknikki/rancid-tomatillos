@@ -43,35 +43,40 @@ class App extends Component {
      })
   }
 
+  resetFoundMovies = () => {
+    this.setState({
+      foundMovies: []
+    })
+  }
+
   deleteMovie = (id) => {
     this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
   }
 
-  findMovie = (event, searchTerm) => {
-    event.preventDefault()
-    console.log(searchTerm)
-    this.setState({ foundMovies: this.allMovies.filter(movie => movie.title.includes(searchTerm))} )
+  findMovie = (searchTerm) => {
+    console.log(this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm)))
+    this.setState({ foundMovies: this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm))} )
     console.log(this.state.foundMovies)
   }
 
   // todo ==> use this once I figure out the search bar situation
-  // displayMovies = () => {
-  //   if (this.state.foundMovies.length > 0) {
-  //     return (
-  //       <section className="wrapper">
-  //         <SearchBar findMovie={this.findMovie}/>
-  //         <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
-  //       </section>
-  //     )
-  //   } else {
-  //     return (
-  //       <section className="wrapper">
-  //         <SearchBar findMovie={this.findMovie}/>
-  //         <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-  //       </section>
-  //     )
-  //   }
-  // }
+  displayMovies = () => {
+    if (this.state.foundMovies.length > 0) {
+      return (
+        <section className="wrapper">
+          {/*<SearchBar findMovie={this.findMovie}/>*/}
+          <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    } else {
+      return (
+        <section className="wrapper">
+          <SearchBar findMovie={this.findMovie}/>
+          <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    }
+  }
 
   render() {
     return (
@@ -89,7 +94,7 @@ class App extends Component {
           }
 
           {!this.state.error && !this.state.allMovies.length &&
-          <h2>Loading...</h2>
+          <h2 className="loading">Loading...</h2>
           }
 
           <Switch>
@@ -111,14 +116,14 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => {
-                return (
-                  <section className="wrapper">
-                    <SearchBar findMovie={this.findMovie}/>
-                    <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-                  </section>
-                )
-              }}
+              render={this.displayMovies}
+                // return (
+                //   <section className="wrapper">
+                //     <SearchBar findMovie={this.findMovie}/>
+                //     <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+                //   </section>
+                // )
+              // }}
             />
 
             <Route path="*" render={() => <NoRoute />} />

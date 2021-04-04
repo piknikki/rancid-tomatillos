@@ -11,18 +11,13 @@ export default class SearchBar extends Component {
     }
   }
 
-  sendSearchTerm = (event) => {
-    event.preventDefault()
-    if (this.state.searchTerm) {
-      try {
-        this.props.findMovie(this.state.searchTerm)
-      } catch ({  message }) { // this is the message that's part of error handling
-        this.setState({ searchTerm: '' })
-      }
-    } else {
-      this.setState({ feedback: 'Something went wrong. Please try a new search.' })
-    }
+  changeHandler = (event) => {
+    this.setState({searchTerm: event.target.value})
+  }
 
+  submitSearch = (event) => {
+    event.preventDefault()
+    this.props.findMovie(this.state.searchTerm)
   }
 
   render() {
@@ -37,9 +32,7 @@ export default class SearchBar extends Component {
               type="text"
               placeholder="Search for a movie......."
               name="searchTerm"
-              onChange={(event) => {
-                return this.setState({searchTerm: event.target.value})
-              }}
+              onChange={this.changeHandler}
             />
           </label>
 
@@ -47,7 +40,7 @@ export default class SearchBar extends Component {
 
           <button
             className="searchBtn"
-            onClick={() => this.sendSearchTerm}
+            onClick={this.submitSearch}
           >Submit</button>
         </form>
       </div>
