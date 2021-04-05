@@ -50,4 +50,12 @@ describe('Feedback Loop', () => {
     cy.get('h1').contains('Welcome.')
   })
 
+  it('Should be able to search for a movie and then see that movie', () => {
+    cy.get('.search-form').find('[type="text"]').type('money')
+
+    cy.get('.searchBtn').click()
+    cy.get('.cards').children().contains('Money Plane')
+
+  })
+
 });
