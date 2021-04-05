@@ -98,6 +98,12 @@ class App extends Component {
           <Switch>
             <Route
               exact
+              path="/"
+              render={this.displayMovies}
+            />
+
+            <Route
+              exact
               path="/movie/:id"
               render={() => {
                 if (this.state.currentMovie) {
@@ -112,14 +118,7 @@ class App extends Component {
               }}
             />
 
-            <Route
-              exact
-              path="/"
-              render={this.displayMovies}
-            />
-
             <Route path="*" render={() => <NoRoute />} />
-
           </Switch>
         </main>
         <Footer />

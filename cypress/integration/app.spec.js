@@ -60,6 +60,39 @@ describe('Search', () => {
     cy.url().should('include', '/539885')
     cy.get('.movie-title').contains('Ava')
   })
+
+  it('Should go back to found movies after seeing profile of movie', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/539885', {fixture: 'mock-movieProfile.json'})
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'mock-movies.json'})
+      .visit('http://localhost:3001')
+
+    cy.get('.search-form').find('[type="text"]').type('ava')
+
+    cy.get('.searchBtn').click()
+    cy.get('.cards').children().contains('Ava').click()
+    cy.url().should('include', '/539885')
+    cy.get('.movie-title').contains('Ava')
+    cy.get('.go-back').click()
+    cy.get('.cards').children().contains('Ava').click()
+  })
+
+  it('Should show all movies after seeing profile of searched movie and clicking home button', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/539885', {fixture: 'mock-movieProfile.json'})
+      .intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'mock-movies.json'})
+      .visit('http://localhost:3001')
+
+    cy.get('.search-form').find('[type="text"]').type('ava')
+
+    cy.get('.searchBtn').click()
+    cy.get('.cards').children().contains('Ava').click()
+    cy.url().should('include', '/539885')
+    cy.get('.movie-title').contains('Ava')
+    cy.get('.home').click()
+    cy.url().should('include', '/')
+    cy.get('.cards')
+      .find('a')
+      .should('have.length', 4)
+  })
 })
 
 describe('Rancid Tomatillos UI sad path', () => {
@@ -70,7 +103,7 @@ describe('Rancid Tomatillos UI sad path', () => {
   })
 
   it('Should show 404 page when no such page exists and go back home on click', () => {
-    cy.visit('http://localhost:3001/5')
+    cy.visit('http://localhost:3001/42')
 
     cy.get('h3').contains('Oops!')
     cy.get('.btn').should('exist').click()
