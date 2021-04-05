@@ -50,12 +50,20 @@ describe('Feedback Loop', () => {
     cy.get('h1').contains('Welcome.')
   })
 
-  it('Should be able to search for a movie and then see that movie', () => {
+  it('Should not show a movie that was deleted', () => {
+    cy.get('#539885').should('exist').click()
+    cy.get('#delete').click()
+    cy.get('.cards')
+      .find('a')
+      .should('have.length', 3)
+
+  })
+
+  it('Should be able to search for a movie and then see that movie card', () => {
     cy.get('.search-form').find('[type="text"]').type('money')
 
     cy.get('.searchBtn').click()
     cy.get('.cards').children().contains('Money Plane')
-
   })
 
 });
