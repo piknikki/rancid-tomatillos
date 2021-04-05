@@ -27,6 +27,7 @@ const MovieProfile = (props) => {
               resetCurrentMovie={props.resetCurrentMovie}
               deleteMovie={props.deleteMovie}
               id={id}
+              resetFoundMovies={props.resetFoundMovies}
             />
 
             <div className="content">

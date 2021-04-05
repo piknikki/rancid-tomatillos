@@ -9,7 +9,7 @@ const Buttons = (props) => {
         <i className="fas fa-arrow-left"> </i>
       </Link>
 
-      <Link to={'/'} id="home" className="home btn">
+      <Link to={'/'} id="home" className="home btn" onClick={() => props.resetFoundMovies()}>
         <i className="far fa-home"> </i>
       </Link>
 

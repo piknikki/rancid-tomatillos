@@ -50,7 +50,7 @@ class App extends Component {
   }
 
   deleteMovie = (id) => {
-    this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
+    this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id), foundMovies: []} )
   }
 
   findMovie = (searchTerm) => {
@@ -105,6 +105,7 @@ class App extends Component {
                     data={this.state.currentMovie}
                     year={this.state.currentMovieDate}
                     resetCurrentMovie={this.resetCurrentMovie}
+                    resetFoundMovies={this.resetFoundMovies}
                     deleteMovie={this.deleteMovie}
                   />
                 }
@@ -115,13 +116,6 @@ class App extends Component {
               exact
               path="/"
               render={this.displayMovies}
-                // return (
-                //   <section className="wrapper">
-                //     <SearchBar findMovie={this.findMovie}/>
-                //     <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-                //   </section>
-                // )
-              // }}
             />
 
             <Route path="*" render={() => <NoRoute />} />
