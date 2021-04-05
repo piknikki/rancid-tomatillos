@@ -127,6 +127,7 @@ class App extends Component {
             />
 
             <Route path="*" render={() => <NoRoute />} />
+
           </Switch>
         </main>
         <Footer />

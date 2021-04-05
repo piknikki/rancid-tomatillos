@@ -5,12 +5,12 @@
     color: white;
 }
 
-h1 {
+.search-tagline {
     font-size: 3em;
     padding: 10px 0;
 }
 
-h3 {
+.search-subtitle {
     font-size: 2em;
     font-weight: 400;
 }

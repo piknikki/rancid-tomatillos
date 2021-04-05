@@ -10,7 +10,7 @@ const NoRoute = () => {
       <div className="oops">
         <h3>Oops!</h3>
         <Link to="/" className="btn">Go back to main page . . .
-          <i className="far fa-home fa-2x"></i>
+          <i className="far fa-home fa-2x home"> </i>
         </Link>
       </div>
     </div>

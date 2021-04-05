@@ -1,14 +1,17 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 svg {
     color: #3b3b3b;
+
+}
+
+.fa-arrow-left,
+.fa-home,
+.fa-times {
+    font-size: 2em;
     margin: 20px;
-}
-
-.delete {
-    float: right;
-    font-size: 2em;
-}
-
-.go-back {
-    float: left;
-    font-size: 2em;
 }

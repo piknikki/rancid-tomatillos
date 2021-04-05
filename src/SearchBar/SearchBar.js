@@ -24,8 +24,8 @@ export default class SearchBar extends Component {
 
     return (
       <div className="searchbar-container">
-        <h1>Welcome.</h1>
-        <h3>We have all the movies. Explore now.</h3>
+        <h1 className="search-tagline">Welcome.</h1>
+        <h3 className="search-subtitle">We have all the movies. Explore now.</h3>
         <form>
           <label>
             <input
