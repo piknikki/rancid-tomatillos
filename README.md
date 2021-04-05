@@ -8,14 +8,15 @@ Learning goals:  To refresh myself on React, implementing RESTful APIs along the
 
 Evolution of the project:  This project flowed according to the project specs, but I also refactored 
 along the way whenever I saw a better way to do something or when I received feedback on how to DRY up my 
-code. I deployed immediately to Heroku so that I didn't have to worry about it at the end of the project 
-time. 
+code. I deployed to Heroku immediately so that I didn't have to worry about it at the end of the project 
+time. Although I could have implemented more api calls (like embedding video), I decided to try to refresh/learn React 
+and Cypress well and to make solid, well-informed programming decisions, instead of adding a bunch of bells and whistles.
 
 As far as other extensions, I looked into this article -- 
 [Medium article on Redux and Hooks](https://medium.com/javascript-scene/do-react-hooks-replace-redux-210bab340672) -- 
-when considering whether to implement Redux. For the most part, most of the power of Redux would go unrealized because this 
-project is so small, so I decided to stick with some small hook usage to work through issues of state and timing of 
-the data calls. 
+when considering whether to implement Redux and hooks. 
+Although I learned a lot about both, I determined that most of the power of Redux and hooks would go unrealized because this 
+project is so small and I just stuck with the basics of React. 
 
 Here is the deployed site:  [Rancid Tomatillos](https://rancid-tomatillos-np.herokuapp.com/)
 
