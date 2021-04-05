@@ -31,7 +31,7 @@ const MovieProfile = (props) => {
 
             <div className="content">
               <img className="profile-card" src={poster_path} alt={title}/>
-              <div className="wrapper">
+              <div className="profile-wrapper">
                 <span className="ratings">{tomatillos.repeat(Math.floor(average_rating))}</span>
                 <h1 className="movie-title">{title} <span className="year">({year})</span></h1>
                 <span className="runtime"> Run time: {runtime}m</span>

@@ -40,7 +40,7 @@ article {
     font-family: 'Raleway', sans-serif;
 }
 
-.wrapper {
+.profile-wrapper {
     width: 100%;
     padding: 10px 0 0 40px;
 }
@@ -77,23 +77,6 @@ article {
 
 .overview {
     margin: 20px 0;
-}
-
-.delete {
-    float: right;
-    font-size: 2em;
-}
-
-.go-back {
-    float: left;
-    font-size: 2em;
-}
-
-.btn {
-    margin: 20px;
-    background: none;
-    border: none;
-    color: #4e4d4d;
 }
 
 .genre {

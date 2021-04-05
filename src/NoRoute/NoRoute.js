@@ -4,30 +4,13 @@ import { Link } from "react-router-dom";
 
 import splat from "../assets/splat.png"
 
-const styles = {
-  header: {
-    backgroundImage: `url(${splat})`,
-    height: '90vh',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    position: 'relative'
-  },
-
-  contentContainer: {
-    height: '100%',
-    width: '100%',
-    background: 'linear-gradient(0deg, #00000050 20%, #ffffff50 100%)',
-  }
-}
-
 const NoRoute = () => {
   return (
-    <div className="wrapper-404" style={styles.header}>
-      <div className="oops" style={styles.contentContainer}>
+    <div className="wrapper-404" style={{backgroundImage: `url(${splat})`}}>
+      <div className="oops">
         <h3>Oops!</h3>
         <Link to="/" className="btn">Go back to main page . . .
-          <i className="far fa-home fa-2x"></i>
+          <i className="far fa-home fa-2x home"> </i>
         </Link>
       </div>
     </div>

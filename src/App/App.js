@@ -7,6 +7,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Footer from "../Footer/Footer";
 import { getAllMovies, getOneMovie } from "../apiCalls";
 import NoRoute from "../NoRoute/NoRoute";
+import SearchBar from "../SearchBar/SearchBar";
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
 
     this.state = {
       allMovies: [],
+      foundMovies: [],
       currentMovie: {},
       currentMovieDate: '',
       error: ''
@@ -41,11 +43,40 @@ class App extends Component {
      })
   }
 
-  // todo ==> hook up delete button on MovieProfile -- use redirect in router
+  resetFoundMovies = () => {
+    this.setState({
+      foundMovies: []
+    })
+  }
+
   deleteMovie = (id) => {
     this.setState({ allMovies: this.state.allMovies.filter(movie => movie.id !== id)} )
   }
 
+  findMovie = (searchTerm) => {
+    console.log(this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm)))
+    this.setState({ foundMovies: this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm))} )
+    console.log(this.state.foundMovies)
+  }
+
+  // todo ==> use this once I figure out the search bar situation
+  displayMovies = () => {
+    if (this.state.foundMovies.length > 0) {
+      return (
+        <section className="wrapper">
+          {/*<SearchBar findMovie={this.findMovie}/>*/}
+          <Movies movies={this.state.foundMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    } else {
+      return (
+        <section className="wrapper">
+          <SearchBar findMovie={this.findMovie}/>
+          <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+        </section>
+      )
+    }
+  }
 
   render() {
     return (
@@ -56,14 +87,16 @@ class App extends Component {
           </Link>
           <span className="title">Rancid Tomatillos</span>
         </header>
+
         <main>
           {!!this.state.error &&
           <h2>{this.state.error}</h2>
           }
 
           {!this.state.error && !this.state.allMovies.length &&
-          <h2>Loading...</h2>
+          <h2 className="loading">Loading...</h2>
           }
+
           <Switch>
             <Route
               exact
@@ -83,12 +116,18 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <section className="wrapper">
-                <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
-              </section>}
+              render={this.displayMovies}
+                // return (
+                //   <section className="wrapper">
+                //     <SearchBar findMovie={this.findMovie}/>
+                //     <Movies movies={this.state.allMovies} getMovie={this.getMovie}/>
+                //   </section>
+                // )
+              // }}
             />
 
             <Route path="*" render={() => <NoRoute />} />
+
           </Switch>
         </main>
         <Footer />
