@@ -20,8 +20,8 @@ const MovieCard = ({ id, poster_path, title, average_rating, release_date, getMo
   )
 }
 
+export default MovieCard;
+
 MovieCard.propTypes = {
   title: PropTypes.string
 }
-
-export default MovieCard;

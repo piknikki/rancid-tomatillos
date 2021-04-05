@@ -54,9 +54,7 @@ class App extends Component {
   }
 
   findMovie = (searchTerm) => {
-    console.log(this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm)))
     this.setState({ foundMovies: this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm))} )
-    console.log(this.state.foundMovies)
   }
 
   // todo ==> use this once I figure out the search bar situation
@@ -90,7 +88,7 @@ class App extends Component {
 
         <main>
           {!!this.state.error &&
-          <h2>{this.state.error}</h2>
+          <h2 className="error-feedback">{this.state.error}</h2>
           }
 
           {!this.state.error && !this.state.allMovies.length &&
