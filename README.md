@@ -18,7 +18,7 @@ when considering whether to implement Redux and hooks.
 Although I learned a lot about both, I determined that most of the power of Redux and hooks would go unrealized because this 
 project is so small and I just stuck with the basics of React. 
 
-Here is a gif of the basic functionality of the app:  [gif](https://github.com/piknikki/rancid-tomatillos/blob/main/src/assets/tomatillos.gif)
+Here is a gif of the basic functionality of the app:  ![gif](https://github.com/piknikki/rancid-tomatillos/blob/main/src/assets/tomatillos.gif)
 
 Here is the deployed site:  [Rancid Tomatillos](https://rancid-tomatillos-np.herokuapp.com/)
 
